@@ -63,8 +63,34 @@ export default function Home() {
           </ol>
         </Section>
 
-        <footer className="pt-12 mt-20 border-t border-neutral-900">
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-neutral-500">
+        <footer className="pt-12 mt-20 border-t border-neutral-900 space-y-4 text-sm text-neutral-500">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <a
+              href="/legal/terms"
+              className="hover:text-neutral-200 transition-colors"
+            >
+              利用規約
+            </a>
+            <a
+              href="/legal/privacy"
+              className="hover:text-neutral-200 transition-colors"
+            >
+              プライバシーポリシー
+            </a>
+            <a
+              href="/legal/tokushoho"
+              className="hover:text-neutral-200 transition-colors"
+            >
+              特定商取引法に基づく表記
+            </a>
+            <a
+              href="mailto:info@v-corp.inc"
+              className="hover:text-neutral-200 transition-colors"
+            >
+              info@v-corp.inc
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <span>© 2026 V-Corp</span>
             <a
               href="https://github.com/MrRG32/virtual-corporation"
