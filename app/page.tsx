@@ -35,13 +35,23 @@ export default function Home() {
         </Section>
 
         <Section label="Products">
-          <ProductCard
-            name="ひとつ"
-            tagline="今日やる 1 つだけ、AI が決めてくれる。"
-            description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。"
-            url="hitotsu.v-corp.inc"
-            status="Coming Soon"
-          />
+          <div className="space-y-5">
+            <ProductCard
+              name="よりそい"
+              tagline="ひとり言を、誰かが受け止めてくれる場所。"
+              description="希死念慮・絶望・孤独を抱える当事者のための、匿名で『うなずき合える』コミュニティ SNS。月額 ¥300。"
+              url="yorisoi.community"
+              href="https://yorisoi.community"
+              status="Live"
+            />
+            <ProductCard
+              name="ひとつ"
+              tagline="今日やる 1 つだけ、AI が決めてくれる。"
+              description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。月額 ¥1,980。"
+              url="hitotsu.v-corp.inc"
+              status="Coming Soon"
+            />
+          </div>
         </Section>
 
         <Section label="Approach">
@@ -97,12 +107,14 @@ function ProductCard({
   tagline,
   description,
   url,
+  href,
   status,
 }: {
   name: string;
   tagline: string;
   description: string;
   url: string;
+  href?: string;
   status: string;
 }) {
   return (
@@ -119,7 +131,18 @@ function ProductCard({
       </p>
       <p className="mt-6 text-sm text-neutral-500">
         <span className="text-neutral-700 mr-2">→</span>
-        {url}
+        {href ? (
+          <a
+            href={href}
+            className="hover:text-neutral-200 transition-colors"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {url}
+          </a>
+        ) : (
+          url
+        )}
       </p>
     </div>
   );

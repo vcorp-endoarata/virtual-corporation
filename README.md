@@ -3,6 +3,8 @@
 > 19歳・高校1年・留年3年・ADHD+トゥレット症候群・趣味は AI のみ。
 > その状態から **ウェブアプリ + サブスクで月収を作る** ための個人プロジェクト。
 
+> 1 プロダクトではなく、**複数の小さな SaaS を並走させる「ソロ・スタジオ型」** 運営。
+
 ## 何を作るか
 
 「世界に1つの巨大事業」ではなく、**月額 980-1,980円のニッチな SaaS** を、ソロ + AI で作る。
@@ -25,12 +27,25 @@
 3. **時間** (1日 2-3時間でも、半年で 400時間)
 4. **ブランドドメイン 18 本所有** (`v-corp.inc / .fun / .tokyo / .tech` ほか)
 
+## プロダクト構成
+
+V-Corp は **複数プロダクトを抱えるソロ・スタジオ**。現時点で 2 プロダクト並走。
+
+| プロダクト | 状態 | URL | リポジトリ |
+|---|---|---|---|
+| **よりそい** (Yorisoi) | Live (¥300/月) | [yorisoi.community](https://yorisoi.community) | `MrRG32/V-Corp` |
+| **ひとつ** (Hitotsu) | Coming Soon (¥1,980/月) | hitotsu.v-corp.inc | `MrRG32/hitotsu-app` (予定) |
+
+「よりそい」は希死念慮・絶望のある当事者向けの匿名コミュニティ SNS。
+「ひとつ」は留年・不登校・発達特性向けの AI 学習伴走 SaaS。
+
 ## ドメイン構成
 
 | ドメイン | 役割 |
 |---|---|
 | [v-corp.inc](https://v-corp.inc) | V-Corp Studio (親ブランド LP) |
-| [hitotsu.v-corp.inc](https://hitotsu.v-corp.inc) | プロダクト1: ひとつ (留年・不登校・発達特性向け AI 学習伴走 SaaS) |
+| hitotsu.v-corp.inc | 「ひとつ」(開発中) |
+| [yorisoi.community](https://yorisoi.community) | 「よりそい」(独自ドメイン・別管理) |
 | v-corp.fun | プロダクト用予備 (現状未使用) |
 | v-corp.tokyo | 日本市場向け 2nd LP (Phase 2) |
 | その他 15 本 | 用途未定。Day 90 で整理判断 |
