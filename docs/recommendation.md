@@ -271,8 +271,11 @@
 | Day 7 | コア公開 + 告知 + 1人目のユーザー (無料でOK) |
 | Day 14 | タスク分解機能リリース + 1人有料転換 |
 | Day 30 | MRR 5,940円 (Pro 3人) / X フォロワー 300人 |
-| Day 60 | MRR 19,800円 (Pro 10人) / 機能追加 1個 |
-| Day 90 | MRR 49,500円 (Pro 25人) / 1ヶ月の継続率 70% |
+| Day 60 | MRR 29,700円 (Pro 15人) / 機能追加 1個 |
+| Day 90 | MRR 79,200円 (Pro 40人) / 月次チャーン 15% 未満 |
+
+**Day 90 で MRR 1 万円未満ならピボット判断** (`growth-playbook.md` §7 参照)。
+詳細な KPI と施策は [docs/growth-playbook.md](growth-playbook.md) を参照。
 
 ---
 
