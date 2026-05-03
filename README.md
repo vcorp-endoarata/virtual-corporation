@@ -30,7 +30,8 @@
 | ドメイン | 役割 |
 |---|---|
 | [v-corp.inc](https://v-corp.inc) | V-Corp Studio (親ブランド LP) |
-| [v-corp.fun](https://v-corp.fun) | プロダクト1: ひとつ (留年・不登校・発達特性向け AI 学習伴走 SaaS) |
+| [hitotsu.v-corp.inc](https://hitotsu.v-corp.inc) | プロダクト1: ひとつ (留年・不登校・発達特性向け AI 学習伴走 SaaS) |
+| v-corp.fun | プロダクト用予備 (現状未使用) |
 | v-corp.tokyo | 日本市場向け 2nd LP (Phase 2) |
 | その他 15 本 | 用途未定。Day 90 で整理判断 |
 

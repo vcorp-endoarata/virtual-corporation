@@ -39,7 +39,7 @@ export default function Home() {
             name="ひとつ"
             tagline="今日やる 1 つだけ、AI が決めてくれる。"
             description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。"
-            url="v-corp.fun"
+            url="hitotsu.v-corp.inc"
             status="Coming Soon"
           />
         </Section>
