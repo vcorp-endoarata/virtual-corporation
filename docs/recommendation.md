@@ -10,7 +10,7 @@
 ### 1.1 名前と URL
 
 - **プロダクト名**: **「ひとつ」** (Hitotsu)
-- **プロダクト URL**: **https://v-corp.fun**
+- **プロダクト URL**: **https://hitotsu.v-corp.inc** (親ブランド .inc のサブドメイン)
 - **親ブランド**: V-Corp
 - **親ブランド URL**: **https://v-corp.inc** (V-Corp Studio LP)
 
@@ -99,13 +99,13 @@
 > 既に v-corp.inc は Vercel に向いている。Day 0 の半分は終わっている。
 
 - [ ] プロダクト名を「ひとつ」に確定 (10分以上悩まない)
-- [ ] v-corp.fun を Vercel に新規プロジェクトとして紐づける (お名前.com 側のネームサーバを ns1.vercel-dns.com / ns2.vercel-dns.com に変更)
 - [ ] GitHub に `virtual-corporation` とは別の空リポジトリを作成 (例: `hitotsu-app`)
+- [ ] Vercel で hitotsu-app 用の新規プロジェクトを作成し、カスタムドメイン `hitotsu.v-corp.inc` を設定 (お名前.com 側で `hitotsu` の CNAME レコードを `cname.vercel-dns.com` に向ける)
 - [ ] Supabase に新規プロジェクト作成
 - [ ] v-corp.inc の Vercel プロジェクトに「V-Corp Studio」の暫定 1ページを置く
 
 **完了条件**:
-- v-corp.fun に "Hello World" が表示される
+- hitotsu.v-corp.inc に "Hello World" が表示される
 - v-corp.inc に V-Corp Studio の暫定 LP が表示される
 
 ---
@@ -184,7 +184,7 @@
 ### Day 7 (2時間) — 公開 + 告知
 
 - [ ] X で告知ポスト
-  - 例: 「19 歳・留年 3 年・ADHD・トゥレットの自分が、自分のために作った。\n『何から手を付けるか』が固まる脳に、AI が今日の 1 つだけを出す。\n7 日間無料。\nhttps://v-corp.fun」
+  - 例: 「19 歳・留年 3 年・ADHD・トゥレットの自分が、自分のために作った。\n『何から手を付けるか』が固まる脳に、AI が今日の 1 つだけを出す。\n7 日間無料。\nhttps://hitotsu.v-corp.inc」
 - [ ] note に開発記録 (1記事)
 - [ ] 留年・通信制・発達特性のハッシュタグで届ける
 
@@ -295,7 +295,8 @@
 | ドメイン | 役割 | 状態 |
 |---|---|---|
 | **v-corp.inc** | V-Corp Studio (代表者・ミッション・全プロダクト一覧) | 既に Vercel に紐付済 |
-| **v-corp.fun** | プロダクト1 = ひとつ (留年・不登校・発達特性向け AI 学習伴走 SaaS) | Day 0 で Vercel に紐付け |
+| **hitotsu.v-corp.inc** | プロダクト1 = ひとつ (留年・不登校・発達特性向け AI 学習伴走 SaaS) | Day 0 で Vercel に紐付け |
+| v-corp.fun | 用途未定 (.fun の信頼性懸念により予備に降格) | — |
 | **v-corp.tokyo** | 日本市場向け 2nd LP (将来) | Phase 2 |
 
 ### 9.2 用途未定で保留する 15 本
@@ -315,7 +316,7 @@
 
 1. **このドキュメントを最後まで読み終えている** (← 今これ)
 2. **GitHub に `hitotsu-app` リポジトリを作成する** (空でよい)
-3. **v-corp.fun を Vercel の新規プロジェクトにつなぐ** (お名前.com のネームサーバを ns1.vercel-dns.com / ns2.vercel-dns.com に変更)
+3. **hitotsu.v-corp.inc サブドメインを Vercel の新規プロジェクトにつなぐ** (お名前.com で `hitotsu` の CNAME を `cname.vercel-dns.com` に向ける)
 
 それだけ。Day 0 の残りは今日中じゃなくていい。
 ただし「次の1アクション」だけは今 5分でやる。
