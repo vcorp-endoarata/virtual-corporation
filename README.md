@@ -30,7 +30,7 @@
 | ドメイン | 役割 |
 |---|---|
 | [v-corp.inc](https://v-corp.inc) | V-Corp Studio (親ブランド LP) |
-| [v-corp.fun](https://v-corp.fun) | プロダクト1: 5min (ADHD タスク分解 SaaS) |
+| [v-corp.fun](https://v-corp.fun) | プロダクト1: ひとつ (留年・不登校・発達特性向け AI 学習伴走 SaaS) |
 | v-corp.tokyo | 日本市場向け 2nd LP (Phase 2) |
 | その他 15 本 | 用途未定。Day 90 で整理判断 |
 
@@ -45,8 +45,8 @@
 ## ステータス
 
 - [x] Phase 0: 戦略再構築 (本ドキュメント)
-- [ ] Phase 1: 7日でデプロイ + 決済受付開始
+- [ ] Phase 1: 14日でデプロイ + 決済受付開始 (Day 7 コア / Day 14 タスク分解機能)
 - [ ] Phase 2: 最初の有料ユーザー 1人
-- [ ] Phase 3: MRR 5,000円
-- [ ] Phase 4: MRR 30,000円
+- [ ] Phase 3: MRR 5,940円 (Pro 3人)
+- [ ] Phase 4: MRR 49,500円 (Pro 25人)
 - [ ] Phase 5: MRR 300,000円
