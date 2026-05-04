@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/profile";
 import { getSubscription, isActive } from "@/lib/subscription";
+import { isAdmin } from "@/lib/admin";
 import { checkoutAction, portalAction } from "./actions";
 
 export const metadata: Metadata = {
@@ -28,7 +29,8 @@ export default async function BillingPage({
   if (!profile) redirect("/onboarding");
 
   const subscription = await getSubscription(user.id);
-  const active = isActive(subscription);
+  const admin = isAdmin(user.email);
+  const active = isActive(subscription, user.email);
 
   const sp = await searchParams;
   const canceled = sp.checkout === "canceled";
@@ -45,7 +47,7 @@ export default async function BillingPage({
             ← ダッシュボード
           </Link>
           <h1 className="mt-6 text-3xl sm:text-4xl font-semibold tracking-tight text-sage-900">
-            {active ? "登録済み" : "Pro に登録"}
+            {admin ? "Admin (永久無料)" : active ? "登録済み" : "Pro に登録"}
           </h1>
         </header>
 
@@ -60,13 +62,50 @@ export default async function BillingPage({
           </div>
         )}
 
-        {active ? (
+        {admin ? (
+          <AdminCard email={user.email!} />
+        ) : active ? (
           <ActiveCard subscription={subscription!} />
         ) : (
           <InactiveCard />
         )}
       </div>
     </main>
+  );
+}
+
+function AdminCard({ email }: { email: string }) {
+  return (
+    <section className="border border-sage-300 rounded-xl p-7 bg-sage-100">
+      <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
+        Admin アカウント
+      </p>
+      <p className="text-2xl font-semibold tracking-tight text-sage-900">
+        全機能を永久に利用可能
+      </p>
+      <p className="mt-2 text-sm text-sage-700">
+        運営者 (V-Corp) のメアドとして登録されているため、課金は発生しません。
+      </p>
+
+      <dl className="mt-6 space-y-3 text-sm">
+        <div className="flex items-baseline justify-between gap-4">
+          <dt className="text-sage-500">登録メアド</dt>
+          <dd className="text-sage-900 font-medium truncate">{email}</dd>
+        </div>
+        <div className="flex items-baseline justify-between gap-4">
+          <dt className="text-sage-500">プラン</dt>
+          <dd className="text-sage-900 font-medium">Admin</dd>
+        </div>
+        <div className="flex items-baseline justify-between gap-4">
+          <dt className="text-sage-500">課金</dt>
+          <dd className="text-sage-900 font-medium">なし</dd>
+        </div>
+      </dl>
+
+      <p className="mt-7 text-xs text-sage-500 leading-[1.8]">
+        Admin 権限は環境変数 <code className="text-sage-700">ADMIN_EMAILS</code> で管理されています。
+      </p>
+    </section>
   );
 }
 
