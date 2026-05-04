@@ -42,7 +42,7 @@ export default function Home() {
               description="希死念慮・絶望・孤独を抱える当事者のための、匿名で『うなずき合える』コミュニティ SNS。月額 ¥300。"
               url="yorisoi.community"
               href="https://yorisoi.community"
-              status="Live"
+              status="Coming Soon"
             />
             <ProductCard
               name="ひとつ"
