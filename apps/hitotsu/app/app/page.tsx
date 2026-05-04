@@ -21,7 +21,7 @@ export default async function AppPage() {
       </p>
 
       <section className="mt-12 border border-cream-300 rounded-xl p-7">
-        <p className="text-xs tracking-[0.3em] text-sage-400 uppercase mb-3">
+        <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
           Day 1: Auth ✅
         </p>
         <p className="text-sage-800 leading-[1.8]">

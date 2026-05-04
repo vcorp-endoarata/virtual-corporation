@@ -3,12 +3,16 @@ export default function Home() {
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
       <div className="mx-auto max-w-2xl">
         <header className="mb-20">
-          <p className="text-xs tracking-[0.3em] text-sage-400 uppercase">
+          <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase">
             by V-Corp
           </p>
           <h1 className="mt-3 text-6xl sm:text-7xl font-semibold tracking-tight">
             ひとつ
           </h1>
+          <div
+            aria-hidden="true"
+            className="mt-5 h-[2px] w-12 bg-sakura-200"
+          />
           <p className="mt-10 text-xl sm:text-2xl text-sage-800 leading-[1.7]">
             今日やる 1 つだけ、
             <br />
@@ -54,7 +58,7 @@ export default function Home() {
 
         <Section label="Status">
           <div className="border border-cream-300 rounded-xl p-7">
-            <p className="text-xs tracking-[0.3em] text-sage-400 uppercase mb-3">
+            <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
               Early Preview
             </p>
             <p className="text-lg text-sage-800">
@@ -123,7 +127,7 @@ function Section({
 }) {
   return (
     <section className="mb-20">
-      <h2 className="text-xs tracking-[0.3em] text-sage-400 uppercase mb-6">
+      <h2 className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-6">
         {label}
       </h2>
       <div className="text-sage-700 leading-[1.9]">{children}</div>
@@ -134,7 +138,7 @@ function Section({
 function Step({ n, text }: { n: string; text: string }) {
   return (
     <li className="flex gap-5">
-      <span className="text-sage-300 tabular-nums text-sm pt-[3px]">
+      <span className="text-sakura-300 tabular-nums text-sm pt-[3px]">
         {n}
       </span>
       <span>{text}</span>

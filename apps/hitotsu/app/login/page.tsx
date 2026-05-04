@@ -30,7 +30,7 @@ export default async function LoginPage({
         <header className="mb-12">
           <Link
             href="/"
-            className="text-xs tracking-[0.3em] text-sage-400 uppercase hover:text-sage-700 transition-colors"
+            className="text-xs tracking-[0.3em] text-sakura-300 uppercase hover:text-sage-700 transition-colors"
           >
             ← ひとつ
           </Link>
@@ -46,7 +46,7 @@ export default async function LoginPage({
 
         {sent ? (
           <div className="border border-cream-300 rounded-xl p-7">
-            <p className="text-xs tracking-[0.3em] text-sage-400 uppercase mb-3">
+            <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
               メール送信完了
             </p>
             <p className="text-sage-800 leading-[1.8]">
@@ -72,7 +72,7 @@ export default async function LoginPage({
             <div>
               <label
                 htmlFor="email"
-                className="block text-xs tracking-[0.2em] text-sage-400 uppercase mb-2"
+                className="block text-xs tracking-[0.2em] text-sakura-300 uppercase mb-2"
               >
                 メールアドレス
               </label>

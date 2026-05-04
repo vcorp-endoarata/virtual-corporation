@@ -23,7 +23,7 @@ export default async function AppLayout({
         <div className="mx-auto max-w-2xl px-6 sm:px-12 py-5 flex items-center justify-between gap-4">
           <Link
             href="/app"
-            className="text-xs tracking-[0.3em] text-sage-500 uppercase hover:text-sage-900 transition-colors"
+            className="text-xs tracking-[0.3em] text-sakura-300 uppercase hover:text-sage-900 transition-colors"
           >
             ひとつ
           </Link>
