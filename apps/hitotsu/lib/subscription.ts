@@ -1,4 +1,5 @@
 import { createClient } from "./supabase/server";
+import { isAdmin } from "./admin";
 
 export type Subscription = {
   id: string;
@@ -42,8 +43,17 @@ export async function getSubscription(
   return data as Subscription | null;
 }
 
-/** 「今 Pro として使える」状態か。trial 中も active も含む。 */
-export function isActive(sub: Subscription | null): boolean {
+/**
+ * 「今 Pro として使える」状態か。
+ * - admin メアドは常に true (運営者は無料で全機能利用)
+ * - active / trialing は true
+ * - それ以外は false
+ */
+export function isActive(
+  sub: Subscription | null,
+  email?: string | null,
+): boolean {
+  if (isAdmin(email)) return true;
   if (!sub) return false;
   return sub.status === "active" || sub.status === "trialing";
 }
