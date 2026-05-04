@@ -19,22 +19,22 @@ export default async function AppLayout({
 
   return (
     <div className="min-h-screen">
-      <header className="border-b border-neutral-900">
+      <header className="border-b border-cream-200">
         <div className="mx-auto max-w-2xl px-6 sm:px-12 py-5 flex items-center justify-between gap-4">
           <Link
             href="/app"
-            className="text-xs tracking-[0.3em] text-neutral-400 uppercase hover:text-neutral-100 transition-colors"
+            className="text-xs tracking-[0.3em] text-sage-500 uppercase hover:text-sage-900 transition-colors"
           >
             ひとつ
           </Link>
           <div className="flex items-center gap-4 text-sm">
-            <span className="text-neutral-500 truncate max-w-[200px]">
+            <span className="text-sage-400 truncate max-w-[200px]">
               {user.email}
             </span>
             <form action={signOut}>
               <button
                 type="submit"
-                className="text-neutral-400 hover:text-neutral-100 transition-colors"
+                className="text-sage-500 hover:text-sage-900 transition-colors"
               >
                 ログアウト
               </button>

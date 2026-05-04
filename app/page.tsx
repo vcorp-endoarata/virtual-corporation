@@ -3,13 +3,13 @@ export default function Home() {
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
       <div className="mx-auto max-w-2xl">
         <header className="mb-24">
-          <p className="text-xs tracking-[0.3em] text-neutral-500 uppercase">
+          <p className="text-xs tracking-[0.3em] text-sage-400 uppercase">
             Virtual Corporation
           </p>
           <h1 className="mt-3 text-6xl sm:text-7xl font-semibold tracking-tight">
             V-Corp
           </h1>
-          <p className="mt-10 text-xl sm:text-2xl text-neutral-200 leading-[1.7]">
+          <p className="mt-10 text-xl sm:text-2xl text-sage-800 leading-[1.7]">
             ひとり と AI で動く、
             <br />
             小さな仮想企業。
@@ -63,29 +63,29 @@ export default function Home() {
           </ol>
         </Section>
 
-        <footer className="pt-12 mt-20 border-t border-neutral-900 space-y-4 text-sm text-neutral-500">
+        <footer className="pt-12 mt-20 border-t border-cream-200 space-y-4 text-sm text-sage-400">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <a
               href="/legal/terms"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               利用規約
             </a>
             <a
               href="/legal/privacy"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               プライバシーポリシー
             </a>
             <a
               href="/legal/tokushoho"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               特定商取引法に基づく表記
             </a>
             <a
               href="mailto:info@v-corp.inc"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               info@v-corp.inc
             </a>
@@ -94,14 +94,14 @@ export default function Home() {
             <span>© 2026 V-Corp</span>
             <a
               href="https://github.com/MrRG32/virtual-corporation"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
               target="_blank"
               rel="noreferrer"
             >
               GitHub
             </a>
-            <span className="text-neutral-700">·</span>
-            <span className="text-neutral-600">
+            <span className="text-cream-300">·</span>
+            <span className="text-sage-300">
               Built solo with AI, in public.
             </span>
           </div>
@@ -120,10 +120,10 @@ function Section({
 }) {
   return (
     <section className="mb-20">
-      <h2 className="text-xs tracking-[0.3em] text-neutral-500 uppercase mb-6">
+      <h2 className="text-xs tracking-[0.3em] text-sage-400 uppercase mb-6">
         {label}
       </h2>
-      <div className="text-neutral-300 leading-[1.9]">{children}</div>
+      <div className="text-sage-700 leading-[1.9]">{children}</div>
     </section>
   );
 }
@@ -144,23 +144,23 @@ function ProductCard({
   status: string;
 }) {
   return (
-    <div className="border border-neutral-800 rounded-xl p-7 hover:border-neutral-600 transition-colors">
+    <div className="border border-cream-300 rounded-xl p-7 hover:border-sage-400 transition-colors">
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="text-3xl font-semibold tracking-tight">{name}</h3>
-        <span className="text-[11px] tracking-widest text-neutral-500 uppercase whitespace-nowrap">
+        <span className="text-[11px] tracking-widest text-sage-400 uppercase whitespace-nowrap">
           {status}
         </span>
       </div>
-      <p className="mt-3 text-lg text-neutral-200">{tagline}</p>
-      <p className="mt-3 text-sm text-neutral-400 leading-[1.8]">
+      <p className="mt-3 text-lg text-sage-800">{tagline}</p>
+      <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
         {description}
       </p>
-      <p className="mt-6 text-sm text-neutral-500">
-        <span className="text-neutral-700 mr-2">→</span>
+      <p className="mt-6 text-sm text-sage-400">
+        <span className="text-cream-300 mr-2">→</span>
         {href ? (
           <a
             href={href}
-            className="hover:text-neutral-200 transition-colors"
+            className="hover:text-sage-800 transition-colors"
             target="_blank"
             rel="noreferrer"
           >
@@ -177,7 +177,7 @@ function ProductCard({
 function ApproachItem({ n, text }: { n: string; text: string }) {
   return (
     <li className="flex gap-5">
-      <span className="text-neutral-600 tabular-nums text-sm pt-[3px]">
+      <span className="text-sage-300 tabular-nums text-sm pt-[3px]">
         {n}
       </span>
       <span>{text}</span>
