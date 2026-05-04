@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/profile";
+import { getSubscription, isActive } from "@/lib/subscription";
 import { signOut } from "./actions";
 
 export default async function AppLayout({
@@ -24,6 +25,14 @@ export default async function AppLayout({
     redirect("/onboarding");
   }
 
+  // 未契約 (試用も active もなし) なら /billing へ
+  const subscription = await getSubscription(user.id);
+  if (!isActive(subscription)) {
+    redirect("/billing");
+  }
+
+  const trialing = subscription?.status === "trialing";
+
   return (
     <div className="min-h-screen">
       <header className="border-b border-cream-200">
@@ -34,8 +43,16 @@ export default async function AppLayout({
           >
             ひとつ
           </Link>
-          <div className="flex items-center gap-4 text-sm">
-            <span className="text-sage-400 truncate max-w-[200px]">
+          <div className="flex items-center gap-3 sm:gap-4 text-sm">
+            {trialing && (
+              <Link
+                href="/billing"
+                className="text-xs px-2 py-1 rounded bg-sakura-100 text-sage-700 hover:bg-sakura-200 transition-colors whitespace-nowrap"
+              >
+                試用中
+              </Link>
+            )}
+            <span className="text-sage-400 truncate max-w-[140px] sm:max-w-[200px]">
               {user.email}
             </span>
             <form action={signOut}>
