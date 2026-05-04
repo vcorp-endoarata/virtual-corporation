@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { getProfile } from "@/lib/profile";
 import { signOut } from "./actions";
 
 export default async function AppLayout({
@@ -15,6 +16,12 @@ export default async function AppLayout({
 
   if (!user) {
     redirect("/login");
+  }
+
+  // オンボーディング未完了ならまずそこへ
+  const profile = await getProfile(user.id);
+  if (!profile) {
+    redirect("/onboarding");
   }
 
   return (
