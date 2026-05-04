@@ -49,7 +49,8 @@ export default function Home() {
               tagline="今日やる 1 つだけ、AI が決めてくれる。"
               description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。月額 ¥1,980。"
               url="hitotsu.v-corp.inc"
-              status="Coming Soon"
+              href="https://hitotsu.v-corp.inc"
+              status="Early Preview"
             />
           </div>
         </Section>
@@ -143,8 +144,8 @@ function ProductCard({
   href?: string;
   status: string;
 }) {
-  return (
-    <div className="border border-cream-300 rounded-xl p-7 hover:border-sage-400 transition-colors">
+  const cardInner = (
+    <>
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="text-3xl font-semibold tracking-tight">{name}</h3>
         <span className="text-[11px] tracking-widest text-sage-400 uppercase whitespace-nowrap">
@@ -155,21 +156,34 @@ function ProductCard({
       <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
         {description}
       </p>
-      <p className="mt-6 text-sm text-sage-400">
-        <span className="text-cream-300 mr-2">→</span>
-        {href ? (
-          <a
-            href={href}
-            className="hover:text-sage-800 transition-colors"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {url}
-          </a>
-        ) : (
-          url
-        )}
+      <p className="mt-6 flex items-center gap-2 text-sm text-sage-500 group-hover:text-sage-900 transition-colors">
+        <span>{url}</span>
+        <span
+          aria-hidden
+          className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform"
+        >
+          →
+        </span>
       </p>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="group block border border-cream-300 rounded-xl p-7 bg-cream-50 hover:bg-sage-100 hover:border-sage-400 hover:shadow-sm transition-all cursor-pointer"
+      >
+        {cardInner}
+      </a>
+    );
+  }
+
+  return (
+    <div className="border border-cream-300 rounded-xl p-7">
+      {cardInner}
     </div>
   );
 }
