@@ -3,81 +3,224 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/profile";
+import {
+  getRecentTasks,
+  getTodayTask,
+  todayJst,
+  type DailyTask,
+} from "@/lib/today";
+import {
+  completeTaskAction,
+  generateTodayAction,
+  uncompleteTaskAction,
+} from "./today-actions";
 
 export const metadata: Metadata = {
   title: "ダッシュボード — ひとつ",
 };
 
-export default async function AppPage() {
+type SearchParams = Promise<{ error?: string }>;
+
+export default async function AppPage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
   if (!user) redirect("/login");
 
   const profile = await getProfile(user.id);
   if (!profile) redirect("/onboarding");
 
+  const [todayTask, recent] = await Promise.all([
+    getTodayTask(user.id),
+    getRecentTasks(user.id, 14),
+  ]);
+
+  const sp = await searchParams;
+  const errorMsg = sp.error ? decodeURIComponent(sp.error) : null;
+
+  // 今日以外の履歴のみを「最近のひとつ」として表示
+  const today = todayJst();
+  const history = recent.filter((t) => t.for_date !== today);
+
   return (
     <>
-      <h1 className="text-3xl font-semibold tracking-tight text-sage-900">
-        ようこそ
-      </h1>
-      <p className="mt-3 text-sage-500">
-        ログイン中: <span className="text-sage-800">{user.email}</span>
-      </p>
-
-      <section className="mt-12 border border-cream-300 rounded-xl p-7">
-        <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
-          Day 2: オンボーディング ✅
+      <header className="mb-10">
+        <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-2">
+          {formatJstDate(today)}
         </p>
-        <p className="text-sage-800 leading-[1.8]">
-          あなたの状況を受け取りました。
-          <br />
-          AI が「今日のひとつ」を生成する機能は次のステップで追加されます。
-        </p>
-      </section>
+        <h1 className="text-3xl font-semibold tracking-tight text-sage-900">
+          今日のひとつ
+        </h1>
+      </header>
 
-      <section className="mt-8 border border-cream-300 rounded-xl p-7">
-        <div className="flex items-baseline justify-between gap-4 mb-5">
-          <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase">
-            登録した内容
-          </p>
-          <Link
-            href="/onboarding"
-            className="text-xs text-sage-500 hover:text-sage-900 transition-colors underline"
-          >
-            編集
-          </Link>
+      {errorMsg && (
+        <div className="mb-6 rounded-lg border border-sakura-300 bg-sakura-100 px-5 py-4 text-sm text-sage-800">
+          エラー: {errorMsg}
         </div>
-        <dl className="space-y-5">
-          <Row label="現在の状況" value={profile.current_situation} />
-          <Row label="目標" value={profile.goal} />
-          <Row label="1日の使える時間" value={`${formatMinutes(profile.daily_minutes)}`} />
-          {profile.difficulties && (
-            <Row label="苦手・困りごと" value={profile.difficulties} />
-          )}
-        </dl>
+      )}
+
+      {/* 今日のひとつ メインカード */}
+      {todayTask ? (
+        <TodayCard task={todayTask} />
+      ) : (
+        <GenerateCard />
+      )}
+
+      {/* 履歴 */}
+      {history.length > 0 && (
+        <section className="mt-14">
+          <h2 className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-5">
+            最近のひとつ
+          </h2>
+          <ul className="space-y-3">
+            {history.map((t) => (
+              <li
+                key={t.id}
+                className="flex items-baseline gap-4 border-b border-cream-200 pb-3 last:border-b-0"
+              >
+                <span className="text-xs text-sage-400 tabular-nums whitespace-nowrap">
+                  {formatJstDate(t.for_date, true)}
+                </span>
+                <span className="flex-1 text-sage-800 leading-[1.7]">
+                  {t.title}
+                </span>
+                <span
+                  className={`text-xs whitespace-nowrap ${
+                    t.completed_at ? "text-sage-600" : "text-sage-300"
+                  }`}
+                >
+                  {t.completed_at ? "✓ 完了" : "─"}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* 設定 */}
+      <section className="mt-14 pt-8 border-t border-cream-200 flex items-center justify-between gap-4 text-sm">
+        <span className="text-sage-400">登録した状況・目標</span>
+        <Link
+          href="/onboarding"
+          className="text-sage-500 hover:text-sage-900 transition-colors underline"
+        >
+          編集する →
+        </Link>
       </section>
     </>
   );
 }
 
-function Row({ label, value }: { label: string; value: string }) {
+function GenerateCard() {
   return (
-    <div>
-      <dt className="text-[11px] tracking-[0.2em] text-sage-400 uppercase mb-1.5">
-        {label}
-      </dt>
-      <dd className="text-sage-800 leading-[1.8] whitespace-pre-wrap">{value}</dd>
-    </div>
+    <section className="border border-cream-300 rounded-xl p-7 bg-cream-50">
+      <p className="text-sage-700 leading-[1.9] mb-6">
+        まだ今日のひとつが決まっていません。
+        <br />
+        AI に決めてもらいましょう。
+      </p>
+      <form action={generateTodayAction}>
+        <button
+          type="submit"
+          className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
+        >
+          今日のひとつを決める →
+        </button>
+      </form>
+      <p className="mt-4 text-xs text-sage-400 leading-[1.8]">
+        AI (Claude) があなたの状況・目標・最近のタスク履歴をもとに、
+        今日できる小さな 1 つを提案します。
+      </p>
+    </section>
   );
 }
 
-function formatMinutes(min: number): string {
-  if (min < 60) return `${min} 分`;
-  if (min === 60) return "1 時間";
-  if (min % 60 === 0) return `${min / 60} 時間`;
-  return `${Math.floor(min / 60)} 時間 ${min % 60} 分`;
+function TodayCard({ task }: { task: DailyTask }) {
+  const completed = !!task.completed_at;
+
+  return (
+    <section
+      className={`border rounded-xl p-7 transition-colors ${
+        completed
+          ? "border-sage-300 bg-sage-100"
+          : "border-cream-300 bg-cream-50"
+      }`}
+    >
+      <div className="flex items-baseline justify-between gap-4 mb-4">
+        <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase">
+          今日のひとつ
+        </p>
+        <span className="text-xs text-sage-400 tabular-nums whitespace-nowrap">
+          目安 {task.estimated_minutes} 分
+        </span>
+      </div>
+
+      <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-sage-900 leading-[1.45]">
+        {task.title}
+      </h2>
+
+      {task.why && (
+        <p className="mt-5 text-sage-700 leading-[1.9] text-[15px]">
+          {task.why}
+        </p>
+      )}
+
+      <div className="mt-7">
+        {completed ? (
+          <form action={uncompleteTaskAction}>
+            <input type="hidden" name="task_id" value={task.id} />
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-sm text-sage-600">
+                ✓ 完了しました ({formatTime(task.completed_at!)})
+              </span>
+              <button
+                type="submit"
+                className="text-xs text-sage-500 hover:text-sage-900 transition-colors underline"
+              >
+                やっぱり戻す
+              </button>
+            </div>
+          </form>
+        ) : (
+          <form action={completeTaskAction}>
+            <input type="hidden" name="task_id" value={task.id} />
+            <button
+              type="submit"
+              className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
+            >
+              できた ✓
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// -----------------------------------------------------------------
+// 日付整形
+// -----------------------------------------------------------------
+
+const WEEK = ["日", "月", "火", "水", "木", "金", "土"] as const;
+
+function formatJstDate(yyyymmdd: string, short = false): string {
+  // yyyymmdd は "2026-05-04" 形式 (Asia/Tokyo の日付)
+  const [y, m, d] = yyyymmdd.split("-").map(Number);
+  const date = new Date(Date.UTC(y, m - 1, d));
+  const day = WEEK[date.getUTCDay()];
+  if (short) return `${m}/${d} (${day})`;
+  return `${y} 年 ${m} 月 ${d} 日 (${day})`;
+}
+
+function formatTime(isoString: string): string {
+  return new Intl.DateTimeFormat("ja-JP", {
+    timeZone: "Asia/Tokyo",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(isoString));
 }
