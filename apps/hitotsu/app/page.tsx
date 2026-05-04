@@ -55,10 +55,10 @@ export default function Home() {
         <Section label="Status">
           <div className="border border-neutral-800 rounded-xl p-7">
             <p className="text-xs tracking-[0.3em] text-neutral-500 uppercase mb-3">
-              Coming Soon
+              Early Preview
             </p>
             <p className="text-lg text-neutral-200">
-              開発中です。公開準備が整い次第、お知らせします。
+              開発中。アカウント登録だけ先行公開しています。
             </p>
             <p className="mt-4 text-sm text-neutral-400">
               開発記録は{" "}
@@ -70,6 +70,12 @@ export default function Home() {
               </a>{" "}
               にて公開しています。
             </p>
+            <a
+              href="/login"
+              className="mt-6 inline-block px-5 py-2.5 bg-neutral-100 text-neutral-900 rounded-lg text-sm font-medium hover:bg-white transition-colors"
+            >
+              ログイン / 登録 →
+            </a>
           </div>
         </Section>
 
