@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 mb-2">
+      <h1 className="text-3xl font-semibold tracking-tight text-sage-900 mb-2">
         利用規約
       </h1>
-      <p className="text-sm text-neutral-500 mb-12">
+      <p className="text-sm text-sage-400 mb-12">
         最終改定: 2026年5月3日
       </p>
 
@@ -113,7 +113,7 @@ export default function TermsPage() {
 
       <Section n="10" title="個人情報の取扱い">
         <p>
-          利用者の個人情報の取扱いは、別途定める <a href="/legal/privacy" className="underline hover:text-neutral-100">プライバシーポリシー</a> に従います。
+          利用者の個人情報の取扱いは、別途定める <a href="/legal/privacy" className="underline hover:text-sage-900">プライバシーポリシー</a> に従います。
         </p>
       </Section>
 
@@ -137,7 +137,7 @@ export default function TermsPage() {
           本規約・本サービスに関するお問い合わせは以下までお願いします。
         </p>
         <p className="mt-2">
-          メール: <a href="mailto:info@v-corp.inc" className="underline hover:text-neutral-100">info@v-corp.inc</a>
+          メール: <a href="mailto:info@v-corp.inc" className="underline hover:text-sage-900">info@v-corp.inc</a>
         </p>
       </Section>
     </>
@@ -155,11 +155,11 @@ function Section({
 }) {
   return (
     <section className="mt-12">
-      <h2 className="text-lg font-semibold text-neutral-100 mb-4">
-        <span className="text-neutral-600 mr-3 tabular-nums">{n}.</span>
+      <h2 className="text-lg font-semibold text-sage-900 mb-4">
+        <span className="text-sage-300 mr-3 tabular-nums">{n}.</span>
         {title}
       </h2>
-      <div className="space-y-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1.5 [&_a]:text-neutral-100">
+      <div className="space-y-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1.5 [&_a]:text-sage-900">
         {children}
       </div>
     </section>

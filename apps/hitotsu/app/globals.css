@@ -1,11 +1,39 @@
 @import "tailwindcss";
 
+/* -----------------------------------------------------------------
+ * V-Corp パレット (よりそいの cream / sage / sakura に整合)
+ * -----------------------------------------------------------------*/
+
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --muted: #737373;
-  --border: #262626;
-  --accent: #fafafa;
+  /* ベースカラー (body 直接指定用) */
+  --background: #f5efd8;
+  --foreground: #2b3623;
+  --muted: #738068;
+  --border: #ece2c0;
+  --accent: #4a553f;
+
+  /* cream (warm off-white scale) */
+  --color-cream-50: #fbf8f0;
+  --color-cream-100: #f5efd8;
+  --color-cream-200: #ece2c0;
+  --color-cream-300: #dccdaa;
+  --color-cream-400: #c5b58d;
+
+  /* sage (calm green-gray scale) */
+  --color-sage-100: #dde3d2;
+  --color-sage-200: #c0ccb0;
+  --color-sage-300: #97a684;
+  --color-sage-400: #738068;
+  --color-sage-500: #5c6850;
+  --color-sage-600: #4a553f;
+  --color-sage-700: #3a4530;
+  --color-sage-800: #2b3623;
+  --color-sage-900: #1f291a;
+
+  /* sakura (soft pink accent) */
+  --color-sakura-100: #f4dde0;
+  --color-sakura-200: #e8b4bc;
+  --color-sakura-300: #d08d96;
 }
 
 @theme inline {
@@ -14,6 +42,27 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-accent: var(--accent);
+
+  --color-cream-50: var(--color-cream-50);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+  --color-cream-300: var(--color-cream-300);
+  --color-cream-400: var(--color-cream-400);
+
+  --color-sage-100: var(--color-sage-100);
+  --color-sage-200: var(--color-sage-200);
+  --color-sage-300: var(--color-sage-300);
+  --color-sage-400: var(--color-sage-400);
+  --color-sage-500: var(--color-sage-500);
+  --color-sage-600: var(--color-sage-600);
+  --color-sage-700: var(--color-sage-700);
+  --color-sage-800: var(--color-sage-800);
+  --color-sage-900: var(--color-sage-900);
+
+  --color-sakura-100: var(--color-sakura-100);
+  --color-sakura-200: var(--color-sakura-200);
+  --color-sakura-300: var(--color-sakura-300);
+
   --font-sans: var(--font-geist-sans);
 }
 
@@ -30,6 +79,6 @@ body {
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--color-sage-200);
+  color: var(--color-sage-900);
 }

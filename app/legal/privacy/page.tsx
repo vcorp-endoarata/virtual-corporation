@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 mb-2">
+      <h1 className="text-3xl font-semibold tracking-tight text-sage-900 mb-2">
         プライバシーポリシー
       </h1>
-      <p className="text-sm text-neutral-500 mb-12">
+      <p className="text-sm text-sage-400 mb-12">
         最終改定: 2026年5月3日
       </p>
 
@@ -164,11 +164,11 @@ function Section({
 }) {
   return (
     <section className="mt-12">
-      <h2 className="text-lg font-semibold text-neutral-100 mb-4">
-        <span className="text-neutral-600 mr-3 tabular-nums">{n}.</span>
+      <h2 className="text-lg font-semibold text-sage-900 mb-4">
+        <span className="text-sage-300 mr-3 tabular-nums">{n}.</span>
         {title}
       </h2>
-      <div className="space-y-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1.5 [&_a]:text-neutral-100">
+      <div className="space-y-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1.5 [&_a]:text-sage-900">
         {children}
       </div>
     </section>

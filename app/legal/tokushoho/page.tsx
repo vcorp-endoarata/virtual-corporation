@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 export default function TokushohoPage() {
   return (
     <>
-      <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 mb-2">
+      <h1 className="text-3xl font-semibold tracking-tight text-sage-900 mb-2">
         特定商取引法に基づく表記
       </h1>
-      <p className="text-sm text-neutral-500 mb-12">
+      <p className="text-sm text-sage-400 mb-12">
         最終改定: 2026年5月3日
       </p>
 
@@ -30,7 +30,7 @@ export default function TokushohoPage() {
         <Item label="所在地">
           請求があったときは遅滞なく開示します。
           <br />
-          <span className="text-neutral-500 text-sm">
+          <span className="text-sage-400 text-sm">
             (特定商取引法施行規則第 10 条第 1 項に基づき、本ページ上では非開示としています)
           </span>
         </Item>
@@ -38,13 +38,13 @@ export default function TokushohoPage() {
         <Item label="電話番号">
           請求があったときは遅滞なく開示します。
           <br />
-          <span className="text-neutral-500 text-sm">
+          <span className="text-sage-400 text-sm">
             (お問い合わせは原則メールにて承ります)
           </span>
         </Item>
 
         <Item label="メールアドレス">
-          <a href="mailto:info@v-corp.inc" className="underline hover:text-neutral-100">
+          <a href="mailto:info@v-corp.inc" className="underline hover:text-sage-900">
             info@v-corp.inc
           </a>
         </Item>
@@ -117,10 +117,10 @@ function Item({
 }) {
   return (
     <div>
-      <dt className="text-xs tracking-[0.2em] text-neutral-500 uppercase mb-2">
+      <dt className="text-xs tracking-[0.2em] text-sage-400 uppercase mb-2">
         {label}
       </dt>
-      <dd className="text-neutral-200 leading-[1.9]">{children}</dd>
+      <dd className="text-sage-800 leading-[1.9]">{children}</dd>
     </div>
   );
 }

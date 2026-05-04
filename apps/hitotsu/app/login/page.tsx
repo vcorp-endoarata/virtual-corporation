@@ -30,14 +30,14 @@ export default async function LoginPage({
         <header className="mb-12">
           <Link
             href="/"
-            className="text-xs tracking-[0.3em] text-neutral-500 uppercase hover:text-neutral-300 transition-colors"
+            className="text-xs tracking-[0.3em] text-sakura-300 uppercase hover:text-sage-700 transition-colors"
           >
             ← ひとつ
           </Link>
           <h1 className="mt-6 text-3xl font-semibold tracking-tight">
             ログイン / 新規登録
           </h1>
-          <p className="mt-3 text-sm text-neutral-400 leading-[1.8]">
+          <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
             メールアドレスを入力すると、リンクが届きます。
             <br />
             初めての方は自動で登録されます。
@@ -45,23 +45,23 @@ export default async function LoginPage({
         </header>
 
         {sent ? (
-          <div className="border border-neutral-800 rounded-xl p-7">
-            <p className="text-xs tracking-[0.3em] text-neutral-500 uppercase mb-3">
+          <div className="border border-cream-300 rounded-xl p-7">
+            <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
               メール送信完了
             </p>
-            <p className="text-neutral-200 leading-[1.8]">
-              <span className="text-neutral-400">{email}</span> にログイン用のリンクを送りました。
+            <p className="text-sage-800 leading-[1.8]">
+              <span className="text-sage-500">{email}</span> にログイン用のリンクを送りました。
               <br />
               メールを開いて、リンクをタップしてください。
             </p>
-            <p className="mt-5 text-xs text-neutral-500">
+            <p className="mt-5 text-xs text-sage-400">
               届かない場合は迷惑メールフォルダも確認してください。
               リンクの有効期限は 1 時間です。
             </p>
             <div className="mt-6">
               <Link
                 href="/login"
-                className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors underline"
+                className="text-sm text-sage-500 hover:text-sage-800 transition-colors underline"
               >
                 別のメアドで送り直す
               </Link>
@@ -72,7 +72,7 @@ export default async function LoginPage({
             <div>
               <label
                 htmlFor="email"
-                className="block text-xs tracking-[0.2em] text-neutral-500 uppercase mb-2"
+                className="block text-xs tracking-[0.2em] text-sakura-300 uppercase mb-2"
               >
                 メールアドレス
               </label>
@@ -83,7 +83,7 @@ export default async function LoginPage({
                 required
                 autoComplete="email"
                 placeholder="you@example.com"
-                className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-neutral-100 placeholder-neutral-600 focus:outline-none focus:border-neutral-500 transition-colors"
+                className="w-full px-4 py-3 bg-cream-50 border border-cream-300 rounded-lg text-sage-900 placeholder-sage-300 focus:outline-none focus:border-sage-500 transition-colors"
               />
             </div>
 
@@ -95,16 +95,16 @@ export default async function LoginPage({
 
             <button
               type="submit"
-              className="w-full py-3 bg-neutral-100 text-neutral-900 rounded-lg font-medium hover:bg-white transition-colors"
+              className="w-full py-3 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
             >
               ログインリンクを送る
             </button>
 
-            <p className="text-xs text-neutral-500 leading-[1.8] pt-2">
+            <p className="text-xs text-sage-400 leading-[1.8] pt-2">
               続行することで、
               <a
                 href="https://v-corp.inc/legal/terms"
-                className="underline hover:text-neutral-300"
+                className="underline hover:text-sage-700"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -113,7 +113,7 @@ export default async function LoginPage({
               {" / "}
               <a
                 href="https://v-corp.inc/legal/privacy"
-                className="underline hover:text-neutral-300"
+                className="underline hover:text-sage-700"
                 target="_blank"
                 rel="noreferrer"
               >

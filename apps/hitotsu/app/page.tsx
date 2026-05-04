@@ -3,13 +3,17 @@ export default function Home() {
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
       <div className="mx-auto max-w-2xl">
         <header className="mb-20">
-          <p className="text-xs tracking-[0.3em] text-neutral-500 uppercase">
+          <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase">
             by V-Corp
           </p>
           <h1 className="mt-3 text-6xl sm:text-7xl font-semibold tracking-tight">
             ひとつ
           </h1>
-          <p className="mt-10 text-xl sm:text-2xl text-neutral-200 leading-[1.7]">
+          <div
+            aria-hidden="true"
+            className="mt-5 h-[2px] w-12 bg-sakura-200"
+          />
+          <p className="mt-10 text-xl sm:text-2xl text-sage-800 leading-[1.7]">
             今日やる 1 つだけ、
             <br />
             AI が決めてくれる。
@@ -53,18 +57,18 @@ export default function Home() {
         </Section>
 
         <Section label="Status">
-          <div className="border border-neutral-800 rounded-xl p-7">
-            <p className="text-xs tracking-[0.3em] text-neutral-500 uppercase mb-3">
+          <div className="border border-cream-300 rounded-xl p-7">
+            <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
               Early Preview
             </p>
-            <p className="text-lg text-neutral-200">
+            <p className="text-lg text-sage-800">
               開発中。アカウント登録だけ先行公開しています。
             </p>
-            <p className="mt-4 text-sm text-neutral-400">
+            <p className="mt-4 text-sm text-sage-500">
               開発記録は{" "}
               <a
                 href="https://v-corp.inc"
-                className="underline hover:text-neutral-100 transition-colors"
+                className="underline hover:text-sage-900 transition-colors"
               >
                 V-Corp
               </a>{" "}
@@ -72,40 +76,40 @@ export default function Home() {
             </p>
             <a
               href="/login"
-              className="mt-6 inline-block px-5 py-2.5 bg-neutral-100 text-neutral-900 rounded-lg text-sm font-medium hover:bg-white transition-colors"
+              className="mt-6 inline-block px-5 py-2.5 bg-sage-700 text-cream-50 rounded-lg text-sm font-medium hover:bg-sage-800 transition-colors"
             >
               ログイン / 登録 →
             </a>
           </div>
         </Section>
 
-        <footer className="pt-12 mt-20 border-t border-neutral-900">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-500">
+        <footer className="pt-12 mt-20 border-t border-cream-200">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-sage-400">
             <a
               href="https://v-corp.inc"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               V-Corp
             </a>
             <a
               href="https://v-corp.inc/legal/terms"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               利用規約
             </a>
             <a
               href="https://v-corp.inc/legal/privacy"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               プライバシー
             </a>
             <a
               href="https://v-corp.inc/legal/tokushoho"
-              className="hover:text-neutral-200 transition-colors"
+              className="hover:text-sage-800 transition-colors"
             >
               特定商取引法表記
             </a>
-            <span className="text-neutral-700">·</span>
+            <span className="text-cream-300">·</span>
             <span>© 2026 V-Corp</span>
           </div>
         </footer>
@@ -123,10 +127,10 @@ function Section({
 }) {
   return (
     <section className="mb-20">
-      <h2 className="text-xs tracking-[0.3em] text-neutral-500 uppercase mb-6">
+      <h2 className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-6">
         {label}
       </h2>
-      <div className="text-neutral-300 leading-[1.9]">{children}</div>
+      <div className="text-sage-700 leading-[1.9]">{children}</div>
     </section>
   );
 }
@@ -134,7 +138,7 @@ function Section({
 function Step({ n, text }: { n: string; text: string }) {
   return (
     <li className="flex gap-5">
-      <span className="text-neutral-600 tabular-nums text-sm pt-[3px]">
+      <span className="text-sakura-300 tabular-nums text-sm pt-[3px]">
         {n}
       </span>
       <span>{text}</span>
