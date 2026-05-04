@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/profile";
 import { getSubscription, isActive } from "@/lib/subscription";
+import { isAdmin } from "@/lib/admin";
 import { signOut } from "./actions";
 
 export default async function AppLayout({
@@ -26,12 +27,14 @@ export default async function AppLayout({
   }
 
   // 未契約 (試用も active もなし) なら /billing へ
+  // ただし admin は常に通る
   const subscription = await getSubscription(user.id);
-  if (!isActive(subscription)) {
+  if (!isActive(subscription, user.email)) {
     redirect("/billing");
   }
 
-  const trialing = subscription?.status === "trialing";
+  const admin = isAdmin(user.email);
+  const trialing = !admin && subscription?.status === "trialing";
 
   return (
     <div className="min-h-screen">
@@ -44,6 +47,11 @@ export default async function AppLayout({
             ひとつ
           </Link>
           <div className="flex items-center gap-3 sm:gap-4 text-sm">
+            {admin && (
+              <span className="text-xs px-2 py-1 rounded bg-sage-700 text-cream-50 whitespace-nowrap font-medium">
+                Admin
+              </span>
+            )}
             {trialing && (
               <Link
                 href="/billing"
