@@ -137,7 +137,7 @@ export default function TermsPage() {
           本規約・本サービスに関するお問い合わせは以下までお願いします。
         </p>
         <p className="mt-2">
-          メール: <a href="mailto:info@v-corp.inc" className="underline hover:text-sage-900">info@v-corp.inc</a>
+          メール: <a href="mailto:arata@v-corp.inc" className="underline hover:text-sage-900">arata@v-corp.inc</a>
         </p>
       </Section>
     </>
