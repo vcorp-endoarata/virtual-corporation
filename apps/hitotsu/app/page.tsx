@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
@@ -109,6 +111,12 @@ export default function Home() {
             >
               特定商取引法表記
             </a>
+            <Link
+              href="/support"
+              className="hover:text-sage-800 transition-colors"
+            >
+              サポート
+            </Link>
             <span className="text-cream-300">·</span>
             <span>© 2026 V-Corp</span>
           </div>
