@@ -9,6 +9,7 @@ import {
   todayJst,
   type DailyTask,
 } from "@/lib/today";
+import { SubmitButton } from "@/components/submit-button";
 import {
   completeTaskAction,
   generateTodayAction,
@@ -125,12 +126,12 @@ function GenerateCard() {
         AI に決めてもらいましょう。
       </p>
       <form action={generateTodayAction}>
-        <button
-          type="submit"
-          className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
+        <SubmitButton
+          pendingText="AI が考えています..."
+          className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800"
         >
           今日のひとつを決める →
-        </button>
+        </SubmitButton>
       </form>
       <p className="mt-4 text-xs text-sage-400 leading-[1.8]">
         AI (Claude) があなたの状況・目標・最近のタスク履歴をもとに、
@@ -178,23 +179,24 @@ function TodayCard({ task }: { task: DailyTask }) {
               <span className="text-sm text-sage-600">
                 ✓ 完了しました ({formatTime(task.completed_at!)})
               </span>
-              <button
-                type="submit"
-                className="text-xs text-sage-500 hover:text-sage-900 transition-colors underline"
+              <SubmitButton
+                spinner={false}
+                pendingText="戻しています..."
+                className="text-xs text-sage-500 hover:text-sage-900 underline"
               >
                 やっぱり戻す
-              </button>
+              </SubmitButton>
             </div>
           </form>
         ) : (
           <form action={completeTaskAction}>
             <input type="hidden" name="task_id" value={task.id} />
-            <button
-              type="submit"
-              className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
+            <SubmitButton
+              pendingText="記録中..."
+              className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800"
             >
               できた ✓
-            </button>
+            </SubmitButton>
           </form>
         )}
       </div>

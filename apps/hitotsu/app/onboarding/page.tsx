@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/profile";
+import { SubmitButton } from "@/components/submit-button";
 import { saveOnboarding } from "./actions";
 
 export const metadata: Metadata = {
@@ -154,12 +155,12 @@ export default async function OnboardingPage({
           </Field>
 
           <div className="pt-4">
-            <button
-              type="submit"
-              className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
+            <SubmitButton
+              pendingText="保存中..."
+              className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800"
             >
               {profile ? "保存する" : "これで「今日のひとつ」を始める →"}
-            </button>
+            </SubmitButton>
             <p className="mt-4 text-xs text-sage-400 leading-[1.8] text-center">
               入力内容は後から自由に変更できます。
               <br />
