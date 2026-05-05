@@ -186,6 +186,21 @@ function InactiveCard() {
           </Link>
         </p>
       </section>
+
+      <section className="border border-cream-200 rounded-xl p-6 bg-cream-100/50">
+        <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-2">
+          月額契約以外で応援したい方へ
+        </p>
+        <p className="text-sm text-sage-700 leading-[1.9] mb-3">
+          月額契約の代わりに、一度だけのサポート (¥500〜) でも開発を支えていただけます。
+        </p>
+        <Link
+          href="/support"
+          className="inline-flex items-center gap-1 text-sm text-sage-700 underline hover:text-sage-900 transition-colors"
+        >
+          ひとつ をサポートする →
+        </Link>
+      </section>
     </div>
   );
 }
