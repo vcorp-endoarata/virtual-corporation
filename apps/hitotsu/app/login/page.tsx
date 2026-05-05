@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SubmitButton } from "@/components/submit-button";
 import { signInWithEmail } from "./actions";
 
 export const metadata: Metadata = {
@@ -93,12 +94,12 @@ export default async function LoginPage({
               </p>
             )}
 
-            <button
-              type="submit"
-              className="w-full py-3 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
+            <SubmitButton
+              pendingText="送信中..."
+              className="w-full py-3 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800"
             >
               ログインリンクを送る
-            </button>
+            </SubmitButton>
 
             <p className="text-xs text-sage-400 leading-[1.8] pt-2">
               続行することで、
