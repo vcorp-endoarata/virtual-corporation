@@ -1,5 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
+import { claimCode } from "@/lib/invite";
+
+const INVITE_COOKIE = "hitotsu_invite_code";
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
@@ -21,30 +25,42 @@ export async function GET(request: NextRequest) {
 
   const supabase = await createClient();
 
-  if (code) {
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
-    if (!error) {
-      return NextResponse.redirect(`${origin}${next}`);
-    }
-    return NextResponse.redirect(
-      `${origin}/login?error=${encodeURIComponent(error.message)}`,
-    );
-  }
+  let userId: string | null = null;
 
-  if (tokenHash && type) {
-    const { error } = await supabase.auth.verifyOtp({
+  if (code) {
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error) {
+      return NextResponse.redirect(
+        `${origin}/login?error=${encodeURIComponent(error.message)}`,
+      );
+    }
+    userId = data.user?.id ?? null;
+  } else if (tokenHash && type) {
+    const { data, error } = await supabase.auth.verifyOtp({
       type,
       token_hash: tokenHash,
     });
-    if (!error) {
-      return NextResponse.redirect(`${origin}${next}`);
+    if (error) {
+      return NextResponse.redirect(
+        `${origin}/login?error=${encodeURIComponent(error.message)}`,
+      );
     }
+    userId = data.user?.id ?? null;
+  } else {
     return NextResponse.redirect(
-      `${origin}/login?error=${encodeURIComponent(error.message)}`,
+      `${origin}/login?error=${encodeURIComponent("invalid_callback")}`,
     );
   }
 
-  return NextResponse.redirect(
-    `${origin}/login?error=${encodeURIComponent("invalid_callback")}`,
-  );
+  // 招待コード cookie があれば claim (初回ログインのみ事実上使われる、再ログイン時は no-op)
+  if (userId) {
+    const cookieStore = await cookies();
+    const inviteCookie = cookieStore.get(INVITE_COOKIE);
+    if (inviteCookie?.value) {
+      await claimCode(inviteCookie.value, userId);
+      cookieStore.delete(INVITE_COOKIE);
+    }
+  }
+
+  return NextResponse.redirect(`${origin}${next}`);
 }
