@@ -12,7 +12,7 @@ export default function PrivacyPage() {
         プライバシーポリシー
       </h1>
       <p className="text-sm text-sage-400 mb-12">
-        最終改定: 2026年5月3日
+        最終改定: 2026年5月5日
       </p>
 
       <p>
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
 
       <Section n="4" title="第三者への提供・委託先">
         <p>
-          当方は、利用者の同意なく個人情報を第三者に提供することはありません。ただし、本サービスの提供のために以下の事業者に処理を委託しています。
+          当方は、利用者の同意なく個人情報を第三者に提供することはありません。ただし、本サービスの提供のために以下の事業者に処理を委託しています。いずれも米国に所在するため、利用者の個人情報は米国へ越境移転されます。
         </p>
         <ul>
           <li>
@@ -66,11 +66,41 @@ export default function PrivacyPage() {
             <strong>Stripe, Inc. (米国)</strong> ── 決済処理 (カード情報を含む)
           </li>
           <li>
-            <strong>Anthropic, PBC (米国)</strong> ── 一部サービスにおける AI 推論 (利用者が入力したテキストを含む)
+            <strong>Anthropic, PBC (米国)</strong> ── 「ひとつ」における AI による日次タスク提案の生成
           </li>
         </ul>
+
+        <h3 className="mt-6 text-base font-semibold text-sage-900">Anthropic に提供する情報の詳細</h3>
         <p>
-          これらの委託先はいずれも米国に所在し、利用者の個人情報は米国に越境移転されることがあります。各社は十分なセキュリティ水準を満たしており、当方との委託契約・約款に基づき適切に取り扱われます。
+          「ひとつ」では、利用者が入力する以下のテキスト情報を Anthropic, PBC が提供する Claude API に送信し、AI による「今日のひとつ」生成のために処理します。
+        </p>
+        <ul>
+          <li>オンボーディングで入力した現在の状況・目標・1 日に使える時間・苦手なこと</li>
+          <li>過去 14 日分のタスク履歴 (タイトル・完了状況)</li>
+        </ul>
+        <p>
+          Anthropic との API 契約により、API 経由で送信されたデータは Anthropic のモデル学習に使用されません (デフォルト設定)。送信したデータは生成処理の完了後、原則として 30 日以内に Anthropic 側で削除されます。詳細は{" "}
+          <a
+            href="https://www.anthropic.com/legal/commercial-terms"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            Anthropic 商用利用規約
+          </a>
+          {" / "}
+          <a
+            href="https://www.anthropic.com/legal/privacy"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            プライバシーポリシー
+          </a>
+          {" "}をご確認ください。
+        </p>
+        <p>
+          本サービスでは、メールアドレス・氏名・決済情報など、利用者を直接特定する個人情報は Anthropic へ送信しません。
         </p>
       </Section>
 
