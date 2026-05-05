@@ -122,10 +122,10 @@ export function DonateForm() {
         ご支援は <strong className="text-sage-700">V-Corp (屋号)</strong> の事業収入として処理されます (贈与ではなく、サービス運営への任意のサポートです)。
         領収書が必要な方は{" "}
         <a
-          href="mailto:info@v-corp.inc"
+          href="mailto:arata@v-corp.inc"
           className="underline hover:text-sage-700"
         >
-          info@v-corp.inc
+          arata@v-corp.inc
         </a>
         {" "}までお問い合わせください。
       </p>
