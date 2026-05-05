@@ -1,0 +1,137 @@
+<!--
+  Supabase Auth - Magic Link テンプレート (ひとつ)
+
+  設定場所:
+    Supabase Dashboard
+    → Authentication → Emails → Templates → Magic Link
+    → "Message body" に この HTML をそのまま貼り付ける
+
+  Subject heading (件名):
+    ログインリンク｜ひとつ
+
+  プレースホルダ:
+    {{ .ConfirmationURL }}  Magic Link URL
+    {{ .Email }}            送信先メアド (任意で表示)
+-->
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ログインリンク｜ひとつ</title>
+  </head>
+  <body style="margin:0;padding:0;background-color:#f5f0e6;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',YuGothic,'Meiryo',sans-serif;color:#3a4a3f;line-height:1.8;-webkit-font-smoothing:antialiased;">
+    <!-- preheader (受信箱プレビュー) -->
+    <div style="display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:#f5f0e6;">
+      下のリンクをタップして「ひとつ」にログイン。リンクは 1 時間で切れます。
+    </div>
+
+    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f0e6;padding:40px 20px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width:520px;background-color:#fdfbf5;border:1px solid #e8dec8;border-radius:14px;">
+            <!-- ヘッダー -->
+            <tr>
+              <td style="padding:36px 40px 8px 40px;">
+                <p style="margin:0;font-size:11px;letter-spacing:0.3em;color:#e8c2c4;text-transform:uppercase;">
+                  ひとつ
+                </p>
+              </td>
+            </tr>
+
+            <!-- 本文 -->
+            <tr>
+              <td style="padding:8px 40px 0 40px;">
+                <h1 style="margin:0 0 20px 0;font-size:24px;font-weight:600;color:#2d3a30;letter-spacing:-0.01em;line-height:1.45;">
+                  ログイン用のリンクです
+                </h1>
+                <p style="margin:0 0 12px 0;font-size:15px;color:#5b6b5f;">
+                  下のボタンをタップすると「ひとつ」にログインできます。
+                </p>
+                <p style="margin:0 0 28px 0;font-size:13px;color:#8a9a8e;">
+                  心当たりがない場合は、このメールを無視してください。
+                </p>
+              </td>
+            </tr>
+
+            <!-- CTA ボタン -->
+            <tr>
+              <td align="center" style="padding:0 40px 8px 40px;">
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" style="background-color:#3a4a3f;border-radius:10px;">
+                      <a
+                        href="{{ .ConfirmationURL }}"
+                        target="_blank"
+                        style="display:inline-block;padding:14px 36px;font-size:15px;font-weight:600;color:#fdfbf5;text-decoration:none;letter-spacing:0.02em;"
+                      >
+                        ひとつ にログイン
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- リンクが押せない場合のフォールバック -->
+            <tr>
+              <td style="padding:32px 40px 8px 40px;">
+                <p style="margin:0 0 8px 0;font-size:12px;color:#8a9a8e;">
+                  ボタンが押せない場合は、下のリンクをコピーしてブラウザで開いてください。
+                </p>
+                <p style="margin:0 0 24px 0;font-size:12px;word-break:break-all;">
+                  <a href="{{ .ConfirmationURL }}" style="color:#5b6b5f;text-decoration:underline;">
+                    {{ .ConfirmationURL }}
+                  </a>
+                </p>
+              </td>
+            </tr>
+
+            <!-- 区切り線 -->
+            <tr>
+              <td style="padding:0 40px;">
+                <div style="border-top:1px solid #e8dec8;"></div>
+              </td>
+            </tr>
+
+            <!-- 注意書き -->
+            <tr>
+              <td style="padding:24px 40px 36px 40px;">
+                <p style="margin:0 0 6px 0;font-size:11px;color:#a5b3a8;line-height:1.7;">
+                  ・このリンクの有効期限は <strong style="color:#5b6b5f;">1 時間</strong> です。
+                </p>
+                <p style="margin:0 0 6px 0;font-size:11px;color:#a5b3a8;line-height:1.7;">
+                  ・1 度クリックすると無効になります。
+                </p>
+                <p style="margin:0;font-size:11px;color:#a5b3a8;line-height:1.7;">
+                  ・心当たりがない場合は、このメールを破棄してください。
+                </p>
+              </td>
+            </tr>
+          </table>
+
+          <!-- フッター -->
+          <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width:520px;margin-top:24px;">
+            <tr>
+              <td align="center" style="padding:0 20px;">
+                <p style="margin:0 0 6px 0;font-size:11px;color:#a5b3a8;letter-spacing:0.05em;">
+                  「今日のひとつだけ」を AI が決める。静かな学習伴走。
+                </p>
+                <p style="margin:0 0 14px 0;font-size:11px;color:#c2cdc6;">
+                  <a href="https://hitotsu.v-corp.inc" style="color:#a5b3a8;text-decoration:none;">hitotsu.v-corp.inc</a>
+                  <span style="color:#dcd5c4;"> · </span>
+                  <a href="https://v-corp.inc/legal/privacy" style="color:#a5b3a8;text-decoration:none;">プライバシー</a>
+                  <span style="color:#dcd5c4;"> · </span>
+                  <a href="https://v-corp.inc/legal/terms" style="color:#a5b3a8;text-decoration:none;">利用規約</a>
+                </p>
+                <p style="margin:0;font-size:10px;color:#c2cdc6;">
+                  © V-Corp · 運営: 遠藤 新汰
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

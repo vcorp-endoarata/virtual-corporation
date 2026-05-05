@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/profile";
 import { getSubscription, isActive } from "@/lib/subscription";
 import { isAdmin } from "@/lib/admin";
+import { SubmitButton } from "@/components/submit-button";
 import { checkoutAction, portalAction } from "./actions";
 
 export const metadata: Metadata = {
@@ -148,12 +149,12 @@ function InactiveCard() {
         </ul>
 
         <form action={checkoutAction} className="mt-8">
-          <button
-            type="submit"
-            className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800 transition-colors"
+          <SubmitButton
+            pendingText="Stripe に移動中..."
+            className="w-full py-4 bg-sage-700 text-cream-50 rounded-lg font-medium hover:bg-sage-800"
           >
             7 日間無料で始める →
-          </button>
+          </SubmitButton>
         </form>
 
         <p className="mt-4 text-xs text-sage-400 leading-[1.8]">
@@ -232,12 +233,12 @@ function ActiveCard({
         </dl>
 
         <form action={portalAction} className="mt-8">
-          <button
-            type="submit"
-            className="w-full py-3 border border-sage-700 text-sage-700 rounded-lg font-medium hover:bg-sage-700 hover:text-cream-50 transition-colors"
+          <SubmitButton
+            pendingText="Stripe に移動中..."
+            className="w-full py-3 border border-sage-700 text-sage-700 rounded-lg font-medium hover:bg-sage-700 hover:text-cream-50"
           >
             支払い方法・解約を管理する →
-          </button>
+          </SubmitButton>
         </form>
         <p className="mt-3 text-xs text-sage-500 leading-[1.8]">
           Stripe の管理画面に移動します。解約・支払い方法変更・領収書のダウンロードが可能です。

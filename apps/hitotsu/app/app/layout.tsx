@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/profile";
 import { getSubscription, isActive } from "@/lib/subscription";
 import { isAdmin } from "@/lib/admin";
+import { SubmitButton } from "@/components/submit-button";
 import { signOut } from "./actions";
 
 export default async function AppLayout({
@@ -64,12 +65,13 @@ export default async function AppLayout({
               {user.email}
             </span>
             <form action={signOut}>
-              <button
-                type="submit"
-                className="text-sage-500 hover:text-sage-900 transition-colors"
+              <SubmitButton
+                spinner={false}
+                pendingText="ログアウト中..."
+                className="text-sage-500 hover:text-sage-900"
               >
                 ログアウト
-              </button>
+              </SubmitButton>
             </form>
           </div>
         </div>
