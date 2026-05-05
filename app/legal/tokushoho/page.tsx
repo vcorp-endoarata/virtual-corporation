@@ -44,8 +44,8 @@ export default function TokushohoPage() {
         </Item>
 
         <Item label="メールアドレス">
-          <a href="mailto:info@v-corp.inc" className="underline hover:text-sage-900">
-            info@v-corp.inc
+          <a href="mailto:arata@v-corp.inc" className="underline hover:text-sage-900">
+            arata@v-corp.inc
           </a>
         </Item>
 
@@ -59,7 +59,7 @@ export default function TokushohoPage() {
         <Item label="販売価格">
           各サービスの紹介ページに表示された月額料金 (税込)。
           <br />
-          例:「ひとつ」 月額 1,980 円 (税込)
+          例:「ひとつ」 月額 1,480 円 (税込)
         </Item>
 
         <Item label="商品代金以外の必要料金">
