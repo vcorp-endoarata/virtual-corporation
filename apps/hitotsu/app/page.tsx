@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { WaitlistForm } from "@/components/waitlist-form";
+import { INVITE_REQUIRED } from "@/lib/invite";
 
 export const revalidate = 3600;
 
@@ -13,6 +15,7 @@ function daysUntilLaunch(): number {
 
 export default function Home() {
   const days = daysUntilLaunch();
+  const isPostLaunchAlpha = days <= 0 && INVITE_REQUIRED;
 
   return (
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
@@ -89,6 +92,18 @@ export default function Home() {
                   先行アカウント登録は今すぐご利用いただけます。
                 </p>
               </>
+            ) : isPostLaunchAlpha ? (
+              <>
+                <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
+                  α版・招待制で開放中
+                </p>
+                <p className="text-lg text-sage-800 leading-[1.7]">
+                  招待コードをお持ちの方はログインできます。
+                </p>
+                <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
+                  招待コードは X で個別配布中、またはウェイトリストから順次お送りしています。
+                </p>
+              </>
             ) : (
               <>
                 <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
@@ -109,14 +124,48 @@ export default function Home() {
               </a>{" "}
               にて公開しています。
             </p>
-            <a
-              href="/login"
-              className="mt-6 inline-block px-5 py-2.5 bg-sage-700 text-cream-50 rounded-lg text-sm font-medium hover:bg-sage-800 transition-colors"
-            >
-              ログイン / 登録 →
-            </a>
+
+            {isPostLaunchAlpha ? (
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="/login"
+                  className="inline-block px-5 py-2.5 bg-sage-700 text-cream-50 rounded-lg text-sm font-medium hover:bg-sage-800 transition-colors"
+                >
+                  招待コードでログイン →
+                </a>
+                <a
+                  href="#waitlist"
+                  className="inline-block px-5 py-2.5 border border-sage-300 text-sage-700 rounded-lg text-sm font-medium hover:bg-cream-100 transition-colors"
+                >
+                  ウェイトリスト登録
+                </a>
+              </div>
+            ) : (
+              <a
+                href="/login"
+                className="mt-6 inline-block px-5 py-2.5 bg-sage-700 text-cream-50 rounded-lg text-sm font-medium hover:bg-sage-800 transition-colors"
+              >
+                ログイン / 登録 →
+              </a>
+            )}
           </div>
         </Section>
+
+        {isPostLaunchAlpha && (
+          <Section label="Waitlist">
+            <div
+              id="waitlist"
+              className="border border-cream-300 rounded-xl p-7 bg-cream-50"
+            >
+              <p className="text-sage-700 leading-[1.9] mb-5">
+                招待コードがまだない方は、ウェイトリストにご登録ください。
+                <br />
+                順次招待コードをお送りしています。
+              </p>
+              <WaitlistForm source="lp" />
+            </div>
+          </Section>
+        )}
 
         <footer className="pt-12 mt-20 border-t border-cream-200">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-sage-400">
