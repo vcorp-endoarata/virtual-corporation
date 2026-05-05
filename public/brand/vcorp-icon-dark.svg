@@ -1,0 +1,10 @@
+<!--
+  V-Corp アイコン (ダーク)
+  サイズ: 1024×1024
+  色: sage-700 background, cream V monogram
+  デザイン: 太い V ストローク (ラインキャップ丸め)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="V-Corp">
+  <rect width="1024" height="1024" rx="200" fill="#3a4a3f"/>
+  <path d="M 280 290 L 512 760 L 744 290" stroke="#fdfbf5" stroke-width="104" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
