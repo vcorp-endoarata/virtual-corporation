@@ -1,0 +1,13 @@
+<!--
+  ひとつ アイコン (ダーク)
+  サイズ: 1024×1024 (任意にスケール可能)
+  色: sage-700 background, cream open circle, sakura dot
+  意味:
+    - 円 = 1日のサイクル
+    - サクラドット = 今日のひとつ
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="ひとつ">
+  <rect width="1024" height="1024" rx="200" fill="#3a4a3f"/>
+  <circle cx="512" cy="512" r="280" fill="none" stroke="#fdfbf5" stroke-width="16" opacity="0.9"/>
+  <circle cx="512" cy="512" r="64" fill="#e8a8aa"/>
+</svg>

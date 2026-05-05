@@ -1,0 +1,10 @@
+<!--
+  ひとつ アイコン (ライト)
+  サイズ: 1024×1024
+  色: cream background, sage open circle, sakura dot
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="ひとつ">
+  <rect width="1024" height="1024" rx="200" fill="#fdfbf5"/>
+  <circle cx="512" cy="512" r="280" fill="none" stroke="#3a4a3f" stroke-width="14"/>
+  <circle cx="512" cy="512" r="64" fill="#e8a8aa"/>
+</svg>
