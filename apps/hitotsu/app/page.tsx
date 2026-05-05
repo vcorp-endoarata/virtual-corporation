@@ -1,6 +1,19 @@
 import Link from "next/link";
 
+export const revalidate = 3600;
+
+const LAUNCH_DATE = "2026-06-01T00:00:00+09:00";
+
+function daysUntilLaunch(): number {
+  const launch = new Date(LAUNCH_DATE).getTime();
+  const now = Date.now();
+  const ms = launch - now;
+  return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
+}
+
 export default function Home() {
+  const days = daysUntilLaunch();
+
   return (
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
       <div className="mx-auto max-w-2xl">
@@ -60,12 +73,32 @@ export default function Home() {
 
         <Section label="Status">
           <div className="border border-cream-300 rounded-xl p-7">
-            <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
-              Early Preview
-            </p>
-            <p className="text-lg text-sage-800">
-              開発中。アカウント登録だけ先行公開しています。
-            </p>
+            {days > 0 ? (
+              <>
+                <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
+                  6/1 正式公開
+                </p>
+                <p className="text-lg text-sage-800">
+                  残り{" "}
+                  <strong className="text-sage-900 tabular-nums">{days}</strong>{" "}
+                  日。
+                </p>
+                <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
+                  開発過程は X / note で発信中。
+                  <br />
+                  先行アカウント登録は今すぐご利用いただけます。
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
+                  Now Live
+                </p>
+                <p className="text-lg text-sage-800">
+                  正式公開中。今日のひとつを始めてください。
+                </p>
+              </>
+            )}
             <p className="mt-4 text-sm text-sage-500">
               開発記録は{" "}
               <a
