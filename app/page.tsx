@@ -1,4 +1,17 @@
+export const revalidate = 3600;
+
+const LAUNCH_DATE = "2026-06-01T00:00:00+09:00";
+
+function daysUntilLaunch(): number {
+  const launch = new Date(LAUNCH_DATE).getTime();
+  const now = Date.now();
+  const ms = launch - now;
+  return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
+}
+
 export default function Home() {
+  const days = daysUntilLaunch();
+
   return (
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
       <div className="mx-auto max-w-2xl">
@@ -14,6 +27,29 @@ export default function Home() {
             <br />
             小さな仮想企業。
           </p>
+
+          {days > 0 ? (
+            <div className="mt-10 inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-cream-100 border border-cream-300 text-sm">
+              <span
+                aria-hidden="true"
+                className="w-2 h-2 rounded-full bg-sakura-300 animate-pulse"
+              />
+              <span className="text-sage-700">
+                6/1 ひとつ + よりそい 同時公開 — 残り{" "}
+                <strong className="text-sage-900 tabular-nums">{days}</strong> 日
+              </span>
+            </div>
+          ) : (
+            <div className="mt-10 inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-sage-100 border border-sage-300 text-sm">
+              <span
+                aria-hidden="true"
+                className="w-2 h-2 rounded-full bg-sage-700"
+              />
+              <span className="text-sage-900 font-medium">
+                ひとつ + よりそい 公開中
+              </span>
+            </div>
+          )}
         </header>
 
         <Section label="Why">
@@ -42,7 +78,7 @@ export default function Home() {
               description="希死念慮・絶望・孤独を抱える当事者のための、匿名で『うなずき合える』コミュニティ SNS。月額 ¥300。"
               url="yorisoi.community"
               href="https://yorisoi.community"
-              status="Coming Soon"
+              status={days > 0 ? `Launching 6/1` : "Live"}
             />
             <ProductCard
               name="ひとつ"
@@ -50,7 +86,7 @@ export default function Home() {
               description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。月額 ¥1,480 (7 日間無料試用)。"
               url="hitotsu.v-corp.inc"
               href="https://hitotsu.v-corp.inc"
-              status="Early Preview"
+              status={days > 0 ? `Launching 6/1` : "Live"}
             />
           </div>
         </Section>
