@@ -59,6 +59,11 @@ export default function Home() {
             AI を全力で味方にすれば、ひとりで動いた方が速い。
           </p>
           <p className="mt-5">
+            ひとりが、AI を同僚として「企業」のように動く。
+            <br />
+            それが V-Corp が言う「仮想企業」。
+          </p>
+          <p className="mt-5">
             代表者は 19 歳。AI が趣味。
             <br />
             ADHD とトゥレット症候群、留年 3 年の経験を持つ。
