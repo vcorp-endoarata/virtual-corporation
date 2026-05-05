@@ -47,7 +47,7 @@ export default function Home() {
             <ProductCard
               name="ひとつ"
               tagline="今日やる 1 つだけ、AI が決めてくれる。"
-              description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。月額 ¥1,980。"
+              description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。月額 ¥1,480 (7 日間無料試用)。"
               url="hitotsu.v-corp.inc"
               href="https://hitotsu.v-corp.inc"
               status="Early Preview"
@@ -66,45 +66,16 @@ export default function Home() {
 
         <footer className="pt-12 mt-20 border-t border-cream-200 space-y-4 text-sm text-sage-400">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <a
-              href="/legal/terms"
-              className="hover:text-sage-800 transition-colors"
-            >
-              利用規約
-            </a>
-            <a
-              href="/legal/privacy"
-              className="hover:text-sage-800 transition-colors"
-            >
-              プライバシーポリシー
-            </a>
-            <a
-              href="/legal/tokushoho"
-              className="hover:text-sage-800 transition-colors"
-            >
-              特定商取引法に基づく表記
-            </a>
-            <a
-              href="mailto:info@v-corp.inc"
-              className="hover:text-sage-800 transition-colors"
-            >
-              info@v-corp.inc
-            </a>
+            <a href="/legal/terms" className="hover:text-sage-800 transition-colors">利用規約</a>
+            <a href="/legal/privacy" className="hover:text-sage-800 transition-colors">プライバシーポリシー</a>
+            <a href="/legal/tokushoho" className="hover:text-sage-800 transition-colors">特定商取引法に基づく表記</a>
+            <a href="mailto:info@v-corp.inc" className="hover:text-sage-800 transition-colors">info@v-corp.inc</a>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <span>© 2026 V-Corp</span>
-            <a
-              href="https://github.com/MrRG32/virtual-corporation"
-              className="hover:text-sage-800 transition-colors"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
+            <a href="https://github.com/MrRG32/virtual-corporation" className="hover:text-sage-800 transition-colors" target="_blank" rel="noreferrer">GitHub</a>
             <span className="text-cream-300">·</span>
-            <span className="text-sage-300">
-              Built solo with AI, in public.
-            </span>
+            <span className="text-sage-300">Built solo with AI, in public.</span>
           </div>
         </footer>
       </div>
@@ -112,88 +83,44 @@ export default function Home() {
   );
 }
 
-function Section({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
+function Section({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <section className="mb-20">
-      <h2 className="text-xs tracking-[0.3em] text-sage-400 uppercase mb-6">
-        {label}
-      </h2>
+      <h2 className="text-xs tracking-[0.3em] text-sage-400 uppercase mb-6">{label}</h2>
       <div className="text-sage-700 leading-[1.9]">{children}</div>
     </section>
   );
 }
 
-function ProductCard({
-  name,
-  tagline,
-  description,
-  url,
-  href,
-  status,
-}: {
-  name: string;
-  tagline: string;
-  description: string;
-  url: string;
-  href?: string;
-  status: string;
-}) {
+function ProductCard({ name, tagline, description, url, href, status }: { name: string; tagline: string; description: string; url: string; href?: string; status: string }) {
   const cardInner = (
     <>
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="text-3xl font-semibold tracking-tight">{name}</h3>
-        <span className="text-[11px] tracking-widest text-sage-400 uppercase whitespace-nowrap">
-          {status}
-        </span>
+        <span className="text-[11px] tracking-widest text-sage-400 uppercase whitespace-nowrap">{status}</span>
       </div>
       <p className="mt-3 text-lg text-sage-800">{tagline}</p>
-      <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
-        {description}
-      </p>
+      <p className="mt-3 text-sm text-sage-500 leading-[1.8]">{description}</p>
       <p className="mt-6 flex items-center gap-2 text-sm text-sage-500 group-hover:text-sage-900 transition-colors">
         <span>{url}</span>
-        <span
-          aria-hidden
-          className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform"
-        >
-          →
-        </span>
+        <span aria-hidden className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform">→</span>
       </p>
     </>
   );
-
   if (href) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="group block border border-cream-300 rounded-xl p-7 bg-cream-50 hover:bg-sage-100 hover:border-sage-400 hover:shadow-sm transition-all cursor-pointer"
-      >
+      <a href={href} target="_blank" rel="noreferrer" className="group block border border-cream-300 rounded-xl p-7 bg-cream-50 hover:bg-sage-100 hover:border-sage-400 hover:shadow-sm transition-all cursor-pointer">
         {cardInner}
       </a>
     );
   }
-
-  return (
-    <div className="border border-cream-300 rounded-xl p-7">
-      {cardInner}
-    </div>
-  );
+  return <div className="border border-cream-300 rounded-xl p-7">{cardInner}</div>;
 }
 
 function ApproachItem({ n, text }: { n: string; text: string }) {
   return (
     <li className="flex gap-5">
-      <span className="text-sage-300 tabular-nums text-sm pt-[3px]">
-        {n}
-      </span>
+      <span className="text-sage-300 tabular-nums text-sm pt-[3px]">{n}</span>
       <span>{text}</span>
     </li>
   );
