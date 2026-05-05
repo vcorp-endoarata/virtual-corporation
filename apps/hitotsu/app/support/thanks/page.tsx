@@ -52,10 +52,10 @@ export default async function ThanksPage({
           <p className="mt-5 text-xs text-sage-500 leading-[1.8]">
             領収書が必要な方は{" "}
             <a
-              href="mailto:info@v-corp.inc"
+              href="mailto:arata@v-corp.inc"
               className="underline hover:text-sage-700"
             >
-              info@v-corp.inc
+              arata@v-corp.inc
             </a>
             {" "}までご連絡ください。
           </p>
