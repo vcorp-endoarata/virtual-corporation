@@ -45,10 +45,10 @@ export default function SupportPage() {
           <p>
             屋号: V-Corp / 代表: 遠藤 新大 / メール:{" "}
             <a
-              href="mailto:info@v-corp.inc"
+              href="mailto:arata@v-corp.inc"
               className="underline hover:text-sage-700"
             >
-              info@v-corp.inc
+              arata@v-corp.inc
             </a>
           </p>
           <p className="flex flex-wrap gap-x-4 gap-y-1 pt-2">
