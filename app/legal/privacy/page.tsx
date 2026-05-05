@@ -12,172 +12,193 @@ export default function PrivacyPage() {
         プライバシーポリシー
       </h1>
       <p className="text-sm text-sage-400 mb-12">
-        最終改定: 2026年5月5日
+        制定日: 2026 年 5 月 5 日 / 最終改定日: 2026 年 5 月 5 日
       </p>
 
       <p>
-        V-Corp (個人事業主・遠藤 新大、以下「当方」) は、利用者の個人情報を以下の方針に従って取り扱います。
+        V-Corp (個人事業主・遠藤 新大、以下「当方」といいます) は、当方が提供するサービス (「ひとつ」その他、以下「本サービス」と総称します) における利用者の個人情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。
       </p>
 
-      <Section n="1" title="事業者">
-        <ul>
-          <li>事業者: 個人事業主 遠藤 新大 (屋号: V-Corp)</li>
-          <li>連絡先: <a href="mailto:info@v-corp.inc" className="underline">info@v-corp.inc</a></li>
-          <li>所在地: お問い合わせをいただいた場合に遅滞なく開示します</li>
-        </ul>
+      <Section n="1" title="取得する情報">
+        <p>本サービスの提供にあたり、以下の情報を取得します。</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border border-cream-200 mt-2">
+            <thead className="bg-cream-100">
+              <tr>
+                <th className="text-left px-3 py-2 font-medium text-sage-900 border-b border-cream-200">項目</th>
+                <th className="text-left px-3 py-2 font-medium text-sage-900 border-b border-cream-200">取得方法</th>
+                <th className="text-left px-3 py-2 font-medium text-sage-900 border-b border-cream-200">用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-2 align-top border-b border-cream-200">メールアドレス</td>
+                <td className="px-3 py-2 align-top border-b border-cream-200">利用者の登録</td>
+                <td className="px-3 py-2 align-top border-b border-cream-200">認証 (Magic Link)、重要なお知らせ送信</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 align-top border-b border-cream-200">利用者の入力データ (現在の状況、目標、1 日に使える時間、苦手なこと、タスク完了履歴)</td>
+                <td className="px-3 py-2 align-top border-b border-cream-200">利用者の操作</td>
+                <td className="px-3 py-2 align-top border-b border-cream-200">「今日のひとつ」の AI 提案生成、サービス内表示</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 align-top border-b border-cream-200">決済情報 (カード番号は当方では保持しません)</td>
+                <td className="px-3 py-2 align-top border-b border-cream-200">Stripe 経由</td>
+                <td className="px-3 py-2 align-top border-b border-cream-200">課金処理</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-2 align-top">アクセスログ、Cookie、IP アドレス、ブラウザ情報</td>
+                <td className="px-3 py-2 align-top">自動取得</td>
+                <td className="px-3 py-2 align-top">不正利用防止、サービス改善</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </Section>
 
-      <Section n="2" title="取得する個人情報">
-        <p>当方は、本サービスの提供にあたって以下の個人情報を取得することがあります。</p>
-        <ul>
-          <li>メールアドレス (アカウント登録・ログイン認証時)</li>
-          <li>氏名・ニックネーム (利用者が任意で入力)</li>
-          <li>サービス利用ログ (アクセス日時、操作履歴、IP アドレス、ブラウザ情報)</li>
-          <li>支払い情報 (Stripe を介して取得・処理。当方はカード番号を保持しません)</li>
-          <li>各サービス固有の入力データ (例:「ひとつ」におけるタスク・進捗データ)</li>
-          <li>お問い合わせ時に利用者が提供した情報</li>
-        </ul>
+      <Section n="2" title="利用目的">
+        <p>取得した個人情報は、以下の目的のために利用します。</p>
+        <ol className="list-decimal pl-6 space-y-1.5">
+          <li>本サービスの提供・運営、認証</li>
+          <li>利用者からの問い合わせ対応</li>
+          <li>利用規約に違反する行為への対応</li>
+          <li>AI モデルによる機能提供 (「ひとつ」におけるタスク提案生成)</li>
+          <li>決済処理 (Stripe)</li>
+          <li>メールによる重要なお知らせ送信 (システム通知、規約変更等)</li>
+          <li>統計データの作成 (個人を特定できない形式に加工)</li>
+        </ol>
       </Section>
 
-      <Section n="3" title="個人情報の利用目的">
-        <p>取得した個人情報は、以下の目的に利用します。</p>
-        <ul>
-          <li>本サービスの提供・運営・認証</li>
-          <li>利用料金の請求・決済処理</li>
-          <li>利用者へのサポート・お問い合わせ対応</li>
-          <li>本サービスの改善・新機能の検討</li>
-          <li>不正利用の検知・防止</li>
-          <li>重要なお知らせ・利用規約変更等の通知</li>
-        </ul>
-      </Section>
-
-      <Section n="4" title="第三者への提供・委託先">
+      <Section n="3" title="第三者への提供">
         <p>
-          当方は、利用者の同意なく個人情報を第三者に提供することはありません。ただし、本サービスの提供のために以下の事業者に処理を委託しています。いずれも米国に所在するため、利用者の個人情報は米国へ越境移転されます。
+          本サービスは、以下の第三者に個人情報を提供する場合があります。利用者は本ポリシーに同意することにより、これらへの提供に同意したものとみなします。いずれも米国に所在するため、利用者の個人情報は米国へ越境移転されます。
         </p>
+
+        <h3 className="mt-6 text-base font-semibold text-sage-900">3.1 認証・データ基盤</h3>
         <ul>
-          <li>
-            <strong>Vercel Inc. (米国)</strong> ── ホスティング・配信
-          </li>
-          <li>
-            <strong>Supabase Inc. (米国)</strong> ── 認証・データベース・ストレージ
-          </li>
-          <li>
-            <strong>Stripe, Inc. (米国)</strong> ── 決済処理 (カード情報を含む)
-          </li>
-          <li>
-            <strong>Anthropic, PBC (米国)</strong> ── 「ひとつ」における AI による日次タスク提案の生成
-          </li>
+          <li><strong>提供先</strong>: Supabase, Inc. (米国)</li>
+          <li><strong>提供データ</strong>: メールアドレス、認証セッション、本サービス内で利用者が入力したすべてのデータ</li>
+          <li><strong>目的</strong>: 認証、データベースおよびストレージの提供</li>
+          <li><strong>保護措置</strong>: 同社のセキュリティ対策・プライバシーポリシーに準拠</li>
         </ul>
 
-        <h3 className="mt-6 text-base font-semibold text-sage-900">Anthropic に提供する情報の詳細</h3>
-        <p>
-          「ひとつ」では、利用者が入力する以下のテキスト情報を Anthropic, PBC が提供する Claude API に送信し、AI による「今日のひとつ」生成のために処理します。
-        </p>
+        <h3 className="mt-6 text-base font-semibold text-sage-900">3.2 ホスティング</h3>
         <ul>
-          <li>オンボーディングで入力した現在の状況・目標・1 日に使える時間・苦手なこと</li>
-          <li>過去 14 日分のタスク履歴 (タイトル・完了状況)</li>
+          <li><strong>提供先</strong>: Vercel, Inc. (米国)</li>
+          <li><strong>提供データ</strong>: アクセスログ、IP アドレス</li>
+          <li><strong>目的</strong>: ウェブサイトの配信</li>
+          <li><strong>保護措置</strong>: 同社のプライバシーポリシーに準拠</li>
         </ul>
-        <p>
-          Anthropic との API 契約により、API 経由で送信されたデータは Anthropic のモデル学習に使用されません (デフォルト設定)。送信したデータは生成処理の完了後、原則として 30 日以内に Anthropic 側で削除されます。詳細は{" "}
-          <a
-            href="https://www.anthropic.com/legal/commercial-terms"
-            target="_blank"
-            rel="noreferrer"
-            className="underline"
-          >
-            Anthropic 商用利用規約
-          </a>
-          {" / "}
-          <a
-            href="https://www.anthropic.com/legal/privacy"
-            target="_blank"
-            rel="noreferrer"
-            className="underline"
-          >
-            プライバシーポリシー
-          </a>
-          {" "}をご確認ください。
-        </p>
-        <p>
-          本サービスでは、メールアドレス・氏名・決済情報など、利用者を直接特定する個人情報は Anthropic へ送信しません。
-        </p>
-      </Section>
 
-      <Section n="5" title="法令に基づく開示">
-        <p>
-          以下のいずれかに該当する場合、利用者の同意なく個人情報を開示することがあります。
-        </p>
+        <h3 className="mt-6 text-base font-semibold text-sage-900">3.3 決済</h3>
         <ul>
-          <li>法令に基づく場合</li>
-          <li>人の生命・身体・財産の保護のために必要であり、本人の同意を得ることが困難な場合</li>
+          <li><strong>提供先</strong>: Stripe, Inc. (米国 / 日本)</li>
+          <li><strong>提供データ</strong>: メールアドレス、決済関連情報</li>
+          <li><strong>目的</strong>: 課金処理</li>
+          <li><strong>保護措置</strong>: PCI DSS Level 1 準拠</li>
+        </ul>
+
+        <h3 className="mt-6 text-base font-semibold text-sage-900">3.4 メール送信</h3>
+        <ul>
+          <li><strong>提供先</strong>: Resend, Inc. (米国)</li>
+          <li><strong>提供データ</strong>: メールアドレス、送信内容</li>
+          <li><strong>目的</strong>: 認証メール、通知メールの送信</li>
+          <li><strong>保護措置</strong>: 同社のセキュリティ対策に準拠</li>
+        </ul>
+
+        <h3 className="mt-6 text-base font-semibold text-sage-900">3.5 AI 処理 (Anthropic)</h3>
+        <ul>
+          <li><strong>提供先</strong>: Anthropic, PBC (米国)</li>
+          <li><strong>提供データ</strong>: 「ひとつ」において、利用者が入力した現在の状況・目標・苦手なこと・1 日に使える時間、および過去 14 日分のタスク履歴 (タイトル・完了状況)</li>
+          <li><strong>目的</strong>: AI による「今日のひとつ」タスク提案生成</li>
+          <li>
+            <strong>学習への利用</strong>: Anthropic との API 利用規約により、当方が API 経由で送信するデータは Anthropic のモデル学習には利用されません (デフォルト opt-out 設定)
+          </li>
+          <li><strong>保管期間</strong>: API 経由のみで処理され、生成完了後は原則として 30 日以内に Anthropic 側で削除されます</li>
+          <li><strong>提供しない情報</strong>: メールアドレス、氏名、決済情報など利用者を直接特定する個人情報は Anthropic へ送信しません</li>
+          <li>
+            <strong>保護措置</strong>: 同社の{" "}
+            <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noreferrer" className="underline">商用利用規約</a>
+            {" "}および{" "}
+            <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noreferrer" className="underline">プライバシーポリシー</a>
+            {" "}に準拠
+          </li>
+        </ul>
+
+        <h3 className="mt-6 text-base font-semibold text-sage-900">3.6 法令に基づく開示</h3>
+        <ul>
+          <li>法令に基づく開示請求があった場合</li>
+          <li>人の生命、身体または財産の保護のために必要であり、本人の同意を得ることが困難である場合</li>
           <li>裁判所・捜査機関等から正式な要請があった場合</li>
         </ul>
       </Section>
 
-      <Section n="6" title="個人情報の保管と削除">
-        <p>
-          利用者の個人情報は、利用目的の達成に必要な期間に限って保管します。利用者がアカウントを削除した場合、合理的な期間内に当該個人情報を削除します。ただし、法令により保存義務がある情報 (取引記録等) はこの限りではありません。
-        </p>
+      <Section n="4" title="保管期間">
+        <ul>
+          <li>
+            <strong>アカウント情報・利用データ</strong>: 利用者がアカウントを削除した時点で、合理的な期間内 (90 日以内) に削除します。ただし、法令上保存が義務付けられているデータ (取引記録等)、および紛争・不正利用調査のため保持する必要があるデータはこの限りではありません。
+          </li>
+          <li>
+            <strong>アクセスログ</strong>: 取得から 90 日以内に削除または匿名化します。
+          </li>
+        </ul>
       </Section>
 
-      <Section n="7" title="利用者の権利">
+      <Section n="5" title="利用者の権利">
         <p>
-          利用者は、自己の個人情報について以下を当方に請求できます。
+          利用者は、当方が保有する自己の個人情報について、以下の権利を行使できます。
         </p>
         <ul>
-          <li>開示</li>
-          <li>訂正・追加・削除</li>
-          <li>利用停止・第三者提供の停止</li>
+          <li>開示請求</li>
+          <li>訂正・追加・削除請求</li>
+          <li>利用停止・消去・第三者提供の停止請求</li>
         </ul>
         <p>
           請求は <a href="mailto:info@v-corp.inc" className="underline">info@v-corp.inc</a> までご連絡ください。本人確認のうえ、合理的な期間内 (原則 14 日以内) に対応します。
         </p>
       </Section>
 
-      <Section n="8" title="Cookie および類似技術">
+      <Section n="6" title="安全管理措置">
         <p>
-          本サービスはログイン状態の維持・利用解析のために Cookie および類似技術 (LocalStorage 等) を利用します。利用者はブラウザ設定でこれらを無効化できますが、その場合一部機能が利用できなくなることがあります。
-        </p>
-      </Section>
-
-      <Section n="9" title="アクセス解析">
-        <p>
-          本サービスは、サービス改善のために匿名化されたアクセス情報を収集する解析ツール (Vercel Analytics 等) を利用することがあります。これらは個人を特定する形では情報を取得しません。
-        </p>
-      </Section>
-
-      <Section n="10" title="未成年者からの情報取得">
-        <p>
-          15 歳未満の利用者の個人情報を取得する場合は、保護者の同意を必要とします。保護者の同意なく取得したことが判明した場合は、速やかに削除します。
-        </p>
-      </Section>
-
-      <Section n="11" title="セキュリティ対策">
-        <p>
-          当方は個人情報への不正アクセス・紛失・破壊・改ざん・漏えい等を防ぐため、以下を含む合理的な安全管理措置を講じます。
+          当方は、個人情報の漏洩、滅失、毀損を防止するため、以下の措置を講じます。
         </p>
         <ul>
-          <li>通信の HTTPS 暗号化</li>
-          <li>データベース・ストレージへの最小権限アクセス制御</li>
+          <li>データの暗号化 (転送時 HTTPS、保管時は Supabase の暗号化機能を利用)</li>
+          <li>アクセス制御 (Supabase Row Level Security によるユーザー単位のアクセス制御)</li>
+          <li>定期的なセキュリティアップデート</li>
+          <li>不正アクセス監視</li>
           <li>認証・パスワードレスログイン</li>
           <li>委託先の安全管理水準の確認</li>
         </ul>
       </Section>
 
-      <Section n="12" title="本ポリシーの変更">
+      <Section n="7" title="Cookie の利用">
         <p>
-          当方は本ポリシーを必要に応じて変更します。重要な変更については本サービス内またはウェブサイト上で事前に通知します。
+          本サービスは、認証セッションの維持および利用解析のために必要な Cookie および類似技術 (LocalStorage 等) を使用します。広告目的や第三者トラッキングのための Cookie は使用しません。利用者はブラウザ設定で Cookie を無効化できますが、その場合一部機能が利用できなくなることがあります。
         </p>
       </Section>
 
-      <Section n="13" title="お問い合わせ">
+      <Section n="8" title="お子様の利用">
         <p>
-          本ポリシー・個人情報の取扱いに関するお問い合わせは以下までお願いします。
+          本サービスは原則として 13 歳以上の方を対象としています。13 歳未満の方は、保護者の同意のうえご利用ください。保護者の同意なく取得したことが判明した場合は、速やかに削除します。
         </p>
-        <p className="mt-2">
-          メール: <a href="mailto:info@v-corp.inc" className="underline">info@v-corp.inc</a>
+      </Section>
+
+      <Section n="9" title="プライバシーポリシーの変更">
+        <p>
+          当方は、必要に応じて本ポリシーを変更します。重要な変更の場合は、本サービス上での告知またはメールによりお知らせします。
         </p>
+      </Section>
+
+      <Section n="10" title="お問い合わせ窓口">
+        <p>
+          個人情報の取扱いに関するお問い合わせは、以下までご連絡ください。
+        </p>
+        <ul>
+          <li><strong>屋号</strong>: V-Corp</li>
+          <li><strong>代表者</strong>: 遠藤 新大</li>
+          <li><strong>メール</strong>: <a href="mailto:info@v-corp.inc" className="underline">info@v-corp.inc</a></li>
+        </ul>
       </Section>
     </>
   );
