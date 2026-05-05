@@ -105,7 +105,7 @@ export default function Home() {
             <a href="/legal/terms" className="hover:text-sage-800 transition-colors">利用規約</a>
             <a href="/legal/privacy" className="hover:text-sage-800 transition-colors">プライバシーポリシー</a>
             <a href="/legal/tokushoho" className="hover:text-sage-800 transition-colors">特定商取引法に基づく表記</a>
-            <a href="mailto:info@v-corp.inc" className="hover:text-sage-800 transition-colors">info@v-corp.inc</a>
+            <a href="mailto:arata@v-corp.inc" className="hover:text-sage-800 transition-colors">arata@v-corp.inc</a>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <span>© 2026 V-Corp</span>

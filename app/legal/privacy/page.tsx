@@ -154,7 +154,7 @@ export default function PrivacyPage() {
           <li>利用停止・消去・第三者提供の停止請求</li>
         </ul>
         <p>
-          請求は <a href="mailto:info@v-corp.inc" className="underline">info@v-corp.inc</a> までご連絡ください。本人確認のうえ、合理的な期間内 (原則 14 日以内) に対応します。
+          請求は <a href="mailto:arata@v-corp.inc" className="underline">arata@v-corp.inc</a> までご連絡ください。本人確認のうえ、合理的な期間内 (原則 14 日以内) に対応します。
         </p>
       </Section>
 
@@ -197,7 +197,7 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>屋号</strong>: V-Corp</li>
           <li><strong>代表者</strong>: 遠藤 新大</li>
-          <li><strong>メール</strong>: <a href="mailto:info@v-corp.inc" className="underline">info@v-corp.inc</a></li>
+          <li><strong>メール</strong>: <a href="mailto:arata@v-corp.inc" className="underline">arata@v-corp.inc</a></li>
         </ul>
       </Section>
     </>
