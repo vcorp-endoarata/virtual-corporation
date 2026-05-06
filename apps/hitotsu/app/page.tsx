@@ -4,18 +4,21 @@ import { INVITE_REQUIRED } from "@/lib/invite";
 
 export const revalidate = 3600;
 
-const LAUNCH_DATE = "2026-06-01T00:00:00+09:00";
+const BETA_DATE = "2026-06-01T00:00:00+09:00";
+const LAUNCH_DATE = "2026-07-01T00:00:00+09:00";
 
-function daysUntilLaunch(): number {
-  const launch = new Date(LAUNCH_DATE).getTime();
-  const now = Date.now();
-  const ms = launch - now;
+function daysUntil(iso: string): number {
+  const target = new Date(iso).getTime();
+  const ms = target - Date.now();
   return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
 }
 
 export default function Home() {
-  const days = daysUntilLaunch();
-  const isPostLaunchAlpha = days <= 0 && INVITE_REQUIRED;
+  const daysToBeta = daysUntil(BETA_DATE);
+  const daysToLaunch = daysUntil(LAUNCH_DATE);
+  const isBetaPeriod = daysToBeta <= 0 && daysToLaunch > 0;
+  const isLive = daysToLaunch <= 0;
+  const showWaitlist = (daysToBeta <= 0 && INVITE_REQUIRED) || isBetaPeriod;
 
   return (
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
@@ -76,14 +79,16 @@ export default function Home() {
 
         <Section label="Status">
           <div className="border border-cream-300 rounded-xl p-7">
-            {days > 0 ? (
+            {daysToBeta > 0 ? (
               <>
                 <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
-                  6/1 正式公開
+                  6/1 β版テスト公開・7/1 正式ローンチ
                 </p>
                 <p className="text-lg text-sage-800">
-                  残り{" "}
-                  <strong className="text-sage-900 tabular-nums">{days}</strong>{" "}
+                  β版まで残り{" "}
+                  <strong className="text-sage-900 tabular-nums">{daysToBeta}</strong>{" "}
+                  日 / 正式ローンチまで{" "}
+                  <strong className="text-sage-900 tabular-nums">{daysToLaunch}</strong>{" "}
                   日。
                 </p>
                 <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
@@ -92,16 +97,20 @@ export default function Home() {
                   先行アカウント登録は今すぐご利用いただけます。
                 </p>
               </>
-            ) : isPostLaunchAlpha ? (
+            ) : isBetaPeriod ? (
               <>
                 <p className="text-xs tracking-[0.3em] text-sakura-300 uppercase mb-3">
-                  α版・招待制で開放中
+                  β版・招待制で開放中
                 </p>
                 <p className="text-lg text-sage-800 leading-[1.7]">
                   招待コードをお持ちの方はログインできます。
                 </p>
                 <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
                   招待コードは X で個別配布中、またはウェイトリストから順次お送りしています。
+                  <br />
+                  7/1 に正式ローンチ予定 (残り{" "}
+                  <strong className="text-sage-900 tabular-nums">{daysToLaunch}</strong>{" "}
+                  日)。
                 </p>
               </>
             ) : (
@@ -125,7 +134,7 @@ export default function Home() {
               にて公開しています。
             </p>
 
-            {isPostLaunchAlpha ? (
+            {isBetaPeriod ? (
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
                   href="/login"
@@ -151,7 +160,7 @@ export default function Home() {
           </div>
         </Section>
 
-        {isPostLaunchAlpha && (
+        {showWaitlist && (
           <Section label="Waitlist">
             <div
               id="waitlist"
