@@ -80,7 +80,7 @@ export default function Home() {
             <ProductCard
               name="よりそい"
               tagline="ひとり言を、誰かが受け止めてくれる場所。"
-              description="希死念慮・絶望・孤独を抱える当事者のための、匿名で『うなずき合える』コミュニティ SNS。月額 ¥300。"
+              description="発達特性 (ADHD・ASD・トゥレット) や、生きづらさを抱える人のための、匿名で『うなずき合える』コミュニティ SNS。月額 ¥300。"
               url="yorisoi.community"
               href="https://yorisoi.community"
               status={days > 0 ? `Launching 6/1` : "Live"}
