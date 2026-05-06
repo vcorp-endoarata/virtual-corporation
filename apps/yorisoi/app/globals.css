@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background-color: #FAF6EE;
+}
+
+body {
+  font-feature-settings: "palt";
+}
+
+/* やわらかいスクロール挑動 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* フォーカスリング: 角ばらず柔らかく */
+*:focus-visible {
+  outline: 2px solid #7A9C86;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* === ダークモード ===
+ * 暖色系の濃い茶背景 + 落ち着いた前景。コミュニティの優しさを保つトーン。
+ * Tailwind の透過色 (bg-white/70 等) を踏襲。 */
+.theme-dark {
+  color-scheme: dark;
+  background-color: #1c1816;
+}
+html:has(.theme-dark) {
+  background-color: #1c1816;
+}
+.theme-dark .bg-cream,
+.theme-dark .bg-cream\/95 {
+  background-color: #1c1816 !important;
+}
+.theme-dark .bg-white,
+.theme-dark .bg-white\/70,
+.theme-dark .bg-white\/60,
+.theme-dark .bg-white\/40,
+.theme-dark .bg-white\/80 {
+  background-color: #2c2622 !important;
+}
+.theme-dark .text-ink {
+  color: #f4ede0 !important;
+}
+.theme-dark .text-sumi,
+.theme-dark .text-sumi\/70,
+.theme-dark .text-sumi\/60,
+.theme-dark .text-sumi\/50,
+.theme-dark .text-sumi\/40 {
+  color: #c8bfae !important;
+}
+.theme-dark .border-wabi,
+.theme-dark .border-wabi\/60,
+.theme-dark .border-wabi\/40 {
+  border-color: #3d3733 !important;
+}
+.theme-dark .bg-sage\/5,
+.theme-dark .bg-sage\/10,
+.theme-dark .bg-sage\/15 {
+  background-color: rgba(122, 156, 134, 0.18) !important;
+}
+.theme-dark .bg-sumi\/10 {
+  background-color: rgba(244, 237, 224, 0.08) !important;
+}
+.theme-dark .bg-sakura\/5,
+.theme-dark .bg-sakura\/10 {
+  background-color: rgba(232, 180, 184, 0.15) !important;
+}
+.theme-dark .bg-red-50\/40 {
+  background-color: rgba(127, 29, 29, 0.25) !important;
+}
+.theme-dark .border-red-200 {
+  border-color: #6b2727 !important;
+}
+.theme-dark .text-red-800 {
+  color: #fca5a5 !important;
+}
+.theme-dark input,
+.theme-dark textarea,
+.theme-dark select {
+  color: #f4ede0;
+  background-color: #2c2622;
+}
+
+/* === ボタンの押下フィードバック === */
+/* aria-pressed=true で active 状態を明確に */
+button[aria-pressed="true"]:not(:disabled) {
+  box-shadow: inset 0 0 0 2px #7A9C86;
+}
+.theme-dark button[aria-pressed="true"]:not(:disabled) {
+  box-shadow: inset 0 0 0 2px #a8c5a8;
+}

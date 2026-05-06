@@ -1,0 +1,74 @@
+<!--
+================================================================
+Supabase Auth Email Template: Confirm Signup (新規登録時)
+================================================================
+
+設定先:
+  https://supabase.com/dashboard/project/mijpcipoegruzazlkpya/auth/templates
+  → 「Confirm signup」タブ
+
+Subject (件名):
+  ようこそ、よりそい へ — メールアドレスのご確認
+
+Body (本文): 以下の <html> を全コピーして貼り付け
+================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+  <body style="font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif; background: #fdfaf3; color: #2d2a26; padding: 32px 16px; margin: 0;">
+    <div style="max-width: 480px; margin: 0 auto; background: #ffffff; border-radius: 20px; padding: 40px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+
+      <!-- Brand -->
+      <div style="text-align: center; margin-bottom: 36px;">
+        <p style="font-size: 12px; color: #5a7e5a; letter-spacing: 0.2em; margin: 0 0 6px;">YORISOI</p>
+        <h1 style="font-size: 26px; color: #2d2a26; margin: 0; font-weight: 500; letter-spacing: 0.05em;">よりそい</h1>
+      </div>
+
+      <!-- Greeting -->
+      <p style="font-size: 18px; line-height: 1.8; color: #2d2a26; margin: 0 0 20px;">
+        ようこそ、よりそい へ 🌿
+      </p>
+
+      <p style="font-size: 14px; line-height: 1.9; color: #4a443c; margin: 0 0 8px;">
+        ご登録ありがとうございます。
+      </p>
+      <p style="font-size: 14px; line-height: 1.9; color: #4a443c; margin: 0 0 32px;">
+        下のボタンを押して、メールアドレスを確認しましょう。<br>
+        あなたのペースで、ゆっくりで大丈夫です。
+      </p>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin: 36px 0;">
+        <a href="{{ .ConfirmationURL }}"
+           style="display: inline-block; background: #5a7e5a; color: #fdfaf3; padding: 14px 36px; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 0.05em;">
+          メールアドレスを確認する
+        </a>
+      </div>
+
+      <!-- Expiry -->
+      <p style="font-size: 12px; color: #8a857d; line-height: 1.7; margin: 32px 0 0; text-align: center;">
+        このリンクは <strong>1時間</strong> で失効します。
+      </p>
+
+      <hr style="border: none; border-top: 1px solid #e6e0d4; margin: 32px 0;" />
+
+      <!-- Service intro -->
+      <p style="font-size: 12px; color: #8a857d; line-height: 1.8; margin: 0;">
+        よりそい は、ADHD・ASD・トゥレット症候群 など発達障害を持つ方と、その家族・身近な人たちのための「安らぎの場」です。比較せず、攻撃せず、ただ寄り添える場所を目指しています。
+      </p>
+
+      <p style="font-size: 11px; color: #8a857d; line-height: 1.8; margin: 24px 0 0;">
+        心当たりがない場合は、このメールを無視していただいて大丈夫です。
+      </p>
+
+      <!-- Footer -->
+      <p style="font-size: 11px; color: #8a857d; line-height: 1.7; margin: 28px 0 0; text-align: center;">
+        <a href="https://yorisoi.community" style="color: #5a7e5a; text-decoration: none;">yorisoi.community</a>
+        &nbsp;·&nbsp;
+        <a href="https://yorisoi.community/legal/terms" style="color: #5a7e5a; text-decoration: none;">利用規約</a>
+        &nbsp;·&nbsp;
+        <a href="https://yorisoi.community/legal/privacy" style="color: #5a7e5a; text-decoration: none;">プライバシー</a>
+      </p>
+    </div>
+  </body>
+</html>
