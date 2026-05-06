@@ -106,6 +106,13 @@ export default function Home() {
               status={daysToBeta > 0 ? "Beta 6/1" : daysToLaunch > 0 ? "Beta" : "Live"}
             />
           </div>
+            <ProductCard
+              name="ねぐら"
+              tagline="わかったフリをしない、AI の話し相手。"
+              description="発達特性 (ADHD・ASD・トゥレット) や精神的な困りごとを持つ当事者のための、『わかる風』を返さない AI 話し相手 SaaS。月額 ¥1,980 〜。"
+              url="negura.v-corp.inc"
+              status="構想中"
+            />
         </Section>
 
         <Section label="Approach">
