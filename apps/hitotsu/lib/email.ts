@@ -59,7 +59,7 @@ export function inviteEmailHtml(opts: {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>α版へのご招待 — ひとつ</title>
+<title>β版へのご招待 — ひとつ</title>
 </head>
 <body style="margin:0;padding:0;background-color:#f5f0e6;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',YuGothic,'Meiryo',sans-serif;color:#3a4a3f;line-height:1.8;">
 <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f0e6;padding:40px 20px;">
@@ -67,8 +67,8 @@ export function inviteEmailHtml(opts: {
 <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width:520px;background-color:#fdfbf5;border:1px solid #e8dec8;border-radius:14px;">
 <tr><td style="padding:36px 40px 8px;"><p style="margin:0;font-size:11px;letter-spacing:0.3em;color:#e8c2c4;text-transform:uppercase;">ひとつ</p></td></tr>
 <tr><td style="padding:8px 40px 0;">
-<h1 style="margin:0 0 20px;font-size:24px;font-weight:600;color:#2d3a30;line-height:1.45;">α版へのご招待です</h1>
-<p style="margin:0 0 16px;font-size:15px;color:#5b6b5f;">「ひとつ」 α版にご招待します。</p>
+<h1 style="margin:0 0 20px;font-size:24px;font-weight:600;color:#2d3a30;line-height:1.45;">β版へのご招待です</h1>
+<p style="margin:0 0 16px;font-size:15px;color:#5b6b5f;">「ひとつ」 β版にご招待します。</p>
 <p style="margin:0 0 16px;font-size:15px;color:#5b6b5f;">下のコードを使って、<strong>7 日間無料試用付き</strong>でご利用いただけます。</p>
 </td></tr>
 <tr><td style="padding:0 40px 8px;">
@@ -95,6 +95,7 @@ export function inviteEmailHtml(opts: {
 <tr><td style="padding:20px 40px 36px;">
 <p style="margin:0 0 6px;font-size:11px;color:#a5b3a8;line-height:1.7;">・このコードは 1 度のみ有効です。</p>
 <p style="margin:0 0 6px;font-size:11px;color:#a5b3a8;line-height:1.7;">・登録後、Stripe で 7 日間無料試用が始まります。試用中の解約で課金は発生しません。</p>
+<p style="margin:0 0 6px;font-size:11px;color:#a5b3a8;line-height:1.7;">・7/1 に正式ローンチ予定です。</p>
 <p style="margin:0;font-size:11px;color:#a5b3a8;line-height:1.7;">・ご質問は <a href="mailto:arata@v-corp.inc" style="color:#5b6b5f;">arata@v-corp.inc</a> まで。</p>
 </td></tr>
 </table>
