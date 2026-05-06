@@ -1,16 +1,17 @@
 export const revalidate = 3600;
 
-const LAUNCH_DATE = "2026-06-01T00:00:00+09:00";
+const BETA_DATE = "2026-06-01T00:00:00+09:00";
+const LAUNCH_DATE = "2026-07-01T00:00:00+09:00";
 
-function daysUntilLaunch(): number {
-  const launch = new Date(LAUNCH_DATE).getTime();
-  const now = Date.now();
-  const ms = launch - now;
+function daysUntil(iso: string): number {
+  const target = new Date(iso).getTime();
+  const ms = target - Date.now();
   return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
 }
 
 export default function Home() {
-  const days = daysUntilLaunch();
+  const daysToBeta = daysUntil(BETA_DATE);
+  const daysToLaunch = daysUntil(LAUNCH_DATE);
 
   return (
     <main className="min-h-screen px-6 py-20 sm:px-12 sm:py-28">
@@ -28,15 +29,26 @@ export default function Home() {
             小さな仮想企業。
           </p>
 
-          {days > 0 ? (
+          {daysToBeta > 0 ? (
             <div className="mt-10 inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-cream-100 border border-cream-300 text-sm">
               <span
                 aria-hidden="true"
                 className="w-2 h-2 rounded-full bg-sakura-300 animate-pulse"
               />
               <span className="text-sage-700">
-                6/1 ひとつ + よりそい 同時公開 — 残り{" "}
-                <strong className="text-sage-900 tabular-nums">{days}</strong> 日
+                6/1 β版公開・7/1 正式ローンチ — β版まで残り{" "}
+                <strong className="text-sage-900 tabular-nums">{daysToBeta}</strong> 日
+              </span>
+            </div>
+          ) : daysToLaunch > 0 ? (
+            <div className="mt-10 inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-cream-100 border border-cream-300 text-sm">
+              <span
+                aria-hidden="true"
+                className="w-2 h-2 rounded-full bg-sakura-300 animate-pulse"
+              />
+              <span className="text-sage-700">
+                β版・招待制で開放中 — 7/1 正式ローンチまで残り{" "}
+                <strong className="text-sage-900 tabular-nums">{daysToLaunch}</strong> 日
               </span>
             </div>
           ) : (
@@ -83,7 +95,7 @@ export default function Home() {
               description="発達特性 (ADHD・ASD・トゥレット) や、生きづらさを抱える人のための、匿名で『うなずき合える』コミュニティ SNS。月額 ¥300。"
               url="yorisoi.community"
               href="https://yorisoi.community"
-              status={days > 0 ? `Launching 6/1` : "Live"}
+              status={daysToBeta > 0 ? "Beta 6/1" : daysToLaunch > 0 ? "Beta" : "Live"}
             />
             <ProductCard
               name="ひとつ"
@@ -91,7 +103,7 @@ export default function Home() {
               description="留年・不登校・通信制・発達特性で『何から手を付けるか』が固まる人のための、AI 学習伴走 SaaS。月額 ¥1,480 (7 日間無料試用)。"
               url="hitotsu.v-corp.inc"
               href="https://hitotsu.v-corp.inc"
-              status={days > 0 ? `Launching 6/1` : "Live"}
+              status={daysToBeta > 0 ? "Beta 6/1" : daysToLaunch > 0 ? "Beta" : "Live"}
             />
           </div>
         </Section>

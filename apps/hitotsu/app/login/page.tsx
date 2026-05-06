@@ -43,7 +43,7 @@ export default async function LoginPage({
           <p className="mt-3 text-sm text-sage-500 leading-[1.8]">
             {INVITE_REQUIRED ? (
               <>
-                現在、<strong>α版・招待制</strong>で運営中です。
+                現在、<strong>β版・招待制</strong>で運営中です。
                 <br />
                 招待コードをお持ちの方はログインできます。
               </>
